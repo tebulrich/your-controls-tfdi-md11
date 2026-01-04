@@ -1,0 +1,125 @@
+# Version 1.0.0
+# TFDi Design MD-11 Configuration File
+# Based on event-based system similar to PMDG 737
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+include:
+  - definitions/modules/navigation.yaml
+  - definitions/modules/physics_rad.yaml
+  - definitions/modules/radios.yaml
+  - definitions/modules/transponder.yaml
+  - definitions/modules/TFDI_MD11_audio_panel.yaml
+  - definitions/modules/TFDI_MD11_radio_panel.yaml
+  - definitions/modules/TFDI_MD11_fmc.yaml
+  - definitions/modules/TFDI_MD11_aft_overhead_panel.yaml
+
+shared:
+  - # Brakes
+    type: NumSet
+    var_name: A:BRAKE LEFT POSITION EX1
+    var_units: Position 32k
+    var_type: i32
+    add_by: -16384
+    event_name: AXIS_LEFT_BRAKE_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:BRAKE RIGHT POSITION EX1
+    var_units: Position 32k
+    var_type: i32
+    add_by: -16384
+    event_name: AXIS_RIGHT_BRAKE_SET
+    unreliable: true
+
+  - # Trim
+    type: NumSet
+    var_name: A:RUDDER TRIM PCT
+    var_units: Position 16k
+    var_type: f64
+    event_name: RUDDER_TRIM_SET_EX1
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:ELEVATOR TRIM PCT
+    var_units: Position 16k
+    var_type: f64
+    event_name: ELEVATOR_TRIM_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:AILERON TRIM PCT
+    var_units: Position 16k
+    var_type: f64
+    event_name: AILERON_TRIM_SET_EX1
+    unreliable: true
+
+  - # General
+    type: ToggleSwitch
+    var_name: A:IS SLEW ACTIVE
+    var_units: Bool
+    var_type: bool
+    event_name: SLEW_TOGGLE
+  -
+    type: ToggleSwitch
+    var_name: A:PUSHBACK ATTACHED
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_PUSHBACK
+    cancel_h_events: true
+    use_calculator: true
+
+  # Additional TFDI MD-11 specific controls are added via module includes above
+  # More modules will be created for FMC/CDU, Overhead Panel, Flight Controls, Autopilot, etc.
+
+master:
+  -
+    type: NumSet
+    var_name: A:GENERAL ENG THROTTLE LEVER POSITION:1
+    var_units: Position 16k
+    var_type: f64
+    event_name: THROTTLE1_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:GENERAL ENG THROTTLE LEVER POSITION:2
+    var_units: Position 16k
+    var_type: f64
+    event_name: THROTTLE2_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:GENERAL ENG THROTTLE LEVER POSITION:3
+    var_units: Position 16k
+    var_type: f64
+    event_name: THROTTLE3_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:ELEVATOR POSITION
+    var_units: Position 16k
+    var_type: f64
+    multiply_by: -1
+    event_name: AXIS_ELEVATOR_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:AILERON POSITION
+    var_units: Position 16k
+    var_type: f64
+    multiply_by: -1
+    event_name: AXIS_AILERONS_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:RUDDER POSITION
+    var_units: Position 16k
+    var_type: f64
+    multiply_by: -1
+    event_name: AXIS_RUDDER_SET
+    use_calculator: true
+    unreliable: true
+
+# Variables to ignore during synchronization (currently empty)
+# Common examples: tablet settings, UI state variables, etc.
+ignore: []

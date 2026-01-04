@@ -1,0 +1,15 @@
+{
+  "category": "left_yoke",
+  "description": "Left Yoke controls",
+  "event_count": 6,
+  "events": [
+    "LYOKE_AP_BT_LEFT_BUTTON_DOWN",
+    "LYOKE_AP_BT_LEFT_BUTTON_UP",
+    "LYOKE_TRIM_SW_LEFT_BUTTON_DOWN",
+    "LYOKE_TRIM_SW_LEFT_BUTTON_UP",
+    "LYOKE_TRIM_SW_RIGHT_BUTTON_DOWN",
+    "LYOKE_TRIM_SW_RIGHT_BUTTON_UP"
+  ],
+  "present_count": 0,
+  "total_count": 6
+}

@@ -1,0 +1,1091 @@
+# TFDI MD-11 Audio Panel Controls
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Audio Panel Microphone Buttons - Captain
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VHF1_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_VHF1_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_VHF1_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VHF2_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_VHF2_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_VHF2_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VHF3_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_VHF3_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_VHF3_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_HF1_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_HF1_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_HF1_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_HF2_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_HF2_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_HF2_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_SAT_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_SAT_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_SAT_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_INT_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_INT_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_INT_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_CAB_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_AUDIO_PNL_CAB_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_AUDIO_PNL_CAB_MIC_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel Microphone Buttons - First Officer
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VHF1_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_VHF1_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_VHF1_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VHF2_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_VHF2_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_VHF2_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VHF3_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_VHF3_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_VHF3_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_HF1_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_HF1_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_HF1_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_HF2_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_HF2_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_HF2_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_SAT_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_SAT_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_SAT_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_INT_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_INT_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_INT_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_AUDIO_PNL_CAB_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_AUDIO_PNL_CAB_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_AUDIO_PNL_CAB_MIC_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel Microphone Buttons - Observer
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_VHF1_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_VHF1_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_VHF1_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_VHF2_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_VHF2_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_VHF2_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_VHF3_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_VHF3_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_VHF3_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_HF1_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_HF1_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_HF1_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_HF2_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_HF2_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_HF2_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_SAT_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_SAT_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_SAT_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_INT_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_INT_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_INT_MIC_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_OBS_AUDIO_PNL_CAB_MIC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: OBS_AUDIO_PNL_CAB_MIC_BT_LEFT_BUTTON_DOWN
+    off_event_name: OBS_AUDIO_PNL_CAB_MIC_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel Volume Button Events - Captain
+  - # These are momentary button presses
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF3_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF3_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_SAT_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_SAT_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_INT_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_INT_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_INT_RADIO_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_INT_RADIO_SW_RIGHT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_CAB_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_CAB_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_PA_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_PA_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_MKR_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_MKR_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_IDENT_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_IDENT_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel Volume Keyboard/Wheel Events - Captain
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF1_VOL_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_VHF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF3_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_VHF3_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VHF3_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_HF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_HF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_HF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_SAT_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_SAT_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_INT_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_INT_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_INT_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_CAB_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_CAB_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_CAB_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_PA_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_PA_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_PA_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_VOR1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_VOR2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_VOR2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_ILS1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_ILS2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ILS2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_ADF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_ADF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_ADF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_MKR_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_CPT_AUDIO_PNL_MKR_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_CPT_AUDIO_PNL_MKR_VOL_KB_WHEEL_DOWN
+
+  - # Audio Panel Volume Button Events - First Officer
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF3_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF3_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_SAT_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_SAT_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_INT_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_INT_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_INT_RADIO_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_INT_RADIO_SW_RIGHT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_CAB_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_CAB_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_PA_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_PA_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_MKR_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_MKR_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_IDENT_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_IDENT_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel Volume Keyboard/Wheel Events - First Officer
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_VHF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_VHF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF3_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_VHF3_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VHF3_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_HF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_HF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_HF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_SAT_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_SAT_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_SAT_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_INT_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_INT_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_INT_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_CAB_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_CAB_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_CAB_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_PA_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_PA_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_PA_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_VOR1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_VOR2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_VOR2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_ILS1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_ILS2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ILS2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_ADF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_ADF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_ADF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_MKR_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: PED_FO_AUDIO_PNL_MKR_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: PED_FO_AUDIO_PNL_MKR_VOL_KB_WHEEL_DOWN
+
+  - # Audio Panel Volume Button Events - Observer
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF3_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF3_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_SAT_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_SAT_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_INT_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_INT_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_CAB_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_CAB_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_PA_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_PA_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF1_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF1_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF2_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF2_VOL_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_MKR_VOL_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_MKR_VOL_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel Volume Keyboard/Wheel Events - Observer
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_VHF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_VHF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF3_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_VHF3_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VHF3_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_HF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_HF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_HF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_SAT_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_SAT_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_SAT_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_INT_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_INT_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_INT_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_CAB_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_CAB_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_CAB_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_PA_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_PA_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_PA_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_VOR1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_VOR2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_VOR2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_ILS1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_ILS2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ILS2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF1_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_ADF1_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF1_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF2_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_ADF2_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_ADF2_VOL_KB_WHEEL_DOWN
+  -
+    type: event
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_MKR_VOL_KB_LEFT_BUTTON_DOWN
+    event_name: OBS_AUDIO_PNL_MKR_VOL_KB_WHEEL_UP
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_MKR_VOL_KB_WHEEL_DOWN
+
+  - # Audio Panel Ident Button - Observer
+    type: event
+    event_name: OBS_AUDIO_PNL_IDENT_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_IDENT_BT_LEFT_BUTTON_UP
+
+  - # Audio Panel INT RADIO Switch - Observer
+  - # Note: This is a switch, may need L: variable mapping
+    type: event
+    event_name: OBS_AUDIO_PNL_INT_RADIO_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: OBS_AUDIO_PNL_INT_RADIO_SW_RIGHT_BUTTON_DOWN
+
+  - # Audio Panel Variables (L: variables for state tracking)
+  - # These are read-only state variables that should be synchronized
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VHF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VHF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VHF3_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_HF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_HF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_SAT_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_INT_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_CAB_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_PA_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VOR1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_VOR2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_ILS1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_ILS2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_ADF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_ADF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_CPT_AUDIO_PNL_MKR_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VHF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VHF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VHF3_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_HF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_HF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_SAT_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_INT_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_CAB_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_PA_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VOR1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_VOR2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_ILS1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_ILS2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_ADF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_ADF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_PED_FO_AUDIO_PNL_MKR_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_VHF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_VHF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_VHF3_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_HF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_HF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_SAT_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_INT_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_CAB_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_PA_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_VOR1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_VOR2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_ILS1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_ILS2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_ADF1_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_ADF2_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_MKR_VOL_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_IDENT_BT
+  -
+    type: var
+    var_name: L:MD11_OBS_AUDIO_PNL_INT_RADIO_SW
+

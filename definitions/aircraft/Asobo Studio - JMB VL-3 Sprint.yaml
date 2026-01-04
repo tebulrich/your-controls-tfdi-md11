@@ -1,0 +1,31 @@
+# Version 0.1.78
+
+include:
+  - definitions/modules/Instruments/WT_G3X_Touch.yaml
+  - definitions/modules/controls.yaml
+  - definitions/modules/electrical.yaml
+  - definitions/modules/engines.yaml
+  - definitions/modules/fuel.yaml
+  - definitions/modules/general.yaml
+  - definitions/modules/handling.yaml
+  - definitions/modules/lights.yaml
+  - definitions/modules/navigation.yaml
+  - definitions/modules/payload.yaml
+  - definitions/modules/radios.yaml
+  - definitions/modules/safety.yaml
+  - definitions/modules/trim.yaml
+
+shared:
+  - # LVAR's
+    type: var
+    var_name: L:ASPropeller_Pitch_Min
+  -
+    type: var
+    var_name: L:ASPropeller_Pitch_Max
+  -
+    type: var
+    var_name: L:ASPropeller_Commanded_RPM
+
+ignore:
+  - ASPropeller_Knob_Inc
+  - ASPropeller_Knob_Dec

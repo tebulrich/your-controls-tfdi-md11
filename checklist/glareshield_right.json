@@ -1,0 +1,15 @@
+{
+  "category": "glareshield_right",
+  "description": "Glareshield Right (Master Warning/Caution, GS)",
+  "event_count": 6,
+  "events": [
+    "GSR_GS_BT_LEFT_BUTTON_DOWN",
+    "GSR_GS_BT_LEFT_BUTTON_UP",
+    "GSR_MST_CAUT_BT_LEFT_BUTTON_DOWN",
+    "GSR_MST_CAUT_BT_LEFT_BUTTON_UP",
+    "GSR_MST_WRN_BT_LEFT_BUTTON_DOWN",
+    "GSR_MST_WRN_BT_LEFT_BUTTON_UP"
+  ],
+  "present_count": 0,
+  "total_count": 6
+}

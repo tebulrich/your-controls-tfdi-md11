@@ -1,0 +1,8 @@
+# Version 2.1.11 (based on Asobo A320)
+
+include:
+  - definitions/aircraft/LatinVFR - Airbus A320ceo.yaml
+
+ignore:
+  - LVFR_EFB_A319#TotalFuelSlider
+  - LVFR_EFB_A319#TotalPaxSlider

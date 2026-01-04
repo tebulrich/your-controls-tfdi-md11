@@ -1,0 +1,166 @@
+# TFDI MD-11 Aft Overhead Panel Controls
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # APU Fire - Wheel Controls
+    type: event
+    event_name: AOVHD_APUFIRE_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_APUFIRE_KB_WHEEL_DOWN
+  -
+    type: event
+    event_name: AOVHD_APUFIRE_KB_WHEEL_UP
+
+  - # APU Generator Button
+    type: event
+    event_name: AOVHD_APU_GEN_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_APU_GEN_BT_LEFT_BUTTON_UP
+
+  - # APU Start Button
+    type: event
+    event_name: AOVHD_APU_START_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_APU_START_BT_LEFT_BUTTON_UP
+
+  - # Cargo Smoke - Aft Agent 1
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_AGNT1_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_AGNT1_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_AGNT1_GRD_LEFT_BUTTON_DOWN
+
+  - # Cargo Smoke - Aft Agent 2
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_AGNT2_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_AGNT2_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_AGNT2_GRD_LEFT_BUTTON_DOWN
+
+  - # Cargo Smoke - Aft Vent Switch
+    type: event
+    event_name: AOVHD_CRGSMK_AFT_VENT_SW_LEFT_BUTTON_DOWN
+
+  - # Cargo Smoke - Forward Agent 1
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_AGNT1_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_AGNT1_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_AGNT1_GRD_LEFT_BUTTON_DOWN
+
+  - # Cargo Smoke - Forward Agent 2
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_AGNT2_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_AGNT2_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_AGNT2_GRD_LEFT_BUTTON_DOWN
+
+  - # Cargo Smoke - Forward Vent Switch
+    type: event
+    event_name: AOVHD_CRGSMK_FWD_VENT_SW_LEFT_BUTTON_DOWN
+
+  - # Cargo Smoke Test Button
+    type: event
+    event_name: AOVHD_CRGSMK_TEST_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_CRGSMK_TEST_BT_LEFT_BUTTON_UP
+
+  - # Engine 1 Fire
+    type: event
+    event_name: AOVHD_ENG1FIRE_1_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG1FIRE_2_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG1FIRE_KB_WHEEL_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG1FIRE_KB_WHEEL_UP
+
+  - # Engine 2 Fire
+    type: event
+    event_name: AOVHD_ENG2FIRE_1_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG2FIRE_2_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG2FIRE_KB_WHEEL_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG2FIRE_KB_WHEEL_UP
+
+  - # Engine 3 Fire
+    type: event
+    event_name: AOVHD_ENG3FIRE_1_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG3FIRE_2_KB_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG3FIRE_KB_WHEEL_DOWN
+  -
+    type: event
+    event_name: AOVHD_ENG3FIRE_KB_WHEEL_UP
+
+  - # Evacuation Ground Button
+    type: event
+    event_name: AOVHD_EVAC_GRD_LEFT_BUTTON_DOWN
+
+  - # Evacuation Horn Shut Switch
+    type: event
+    event_name: AOVHD_EVAC_HORNSHUT_SW_LEFT_BUTTON_DOWN
+
+  - # Evacuation Switch
+    type: event
+    event_name: AOVHD_EVAC_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_EVAC_SW_RIGHT_BUTTON_DOWN
+
+  - # Fire Test Button
+    type: event
+    event_name: AOVHD_FIRETEST_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_FIRETEST_BT_LEFT_BUTTON_UP
+
+  - # GPWS Ground Button
+    type: event
+    event_name: AOVHD_GPWS_GRD_LEFT_BUTTON_DOWN
+
+  - # GPWS Switch
+    type: event
+    event_name: AOVHD_GPWS_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_GPWS_SW_RIGHT_BUTTON_DOWN
+
+  - # GPWS Terrain Override Button
+    type: event
+    event_name: AOVHD_GPWS_TERROVRD_BT_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: AOVHD_GPWS_TERROVRD_BT_LEFT_BUTTON_UP
+  -
+    type: event
+    event_name: AOVHD_GPWS_TERROVRD_GRD_LEFT_BUTTON_DOWN
+

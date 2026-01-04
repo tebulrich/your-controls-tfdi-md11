@@ -1,0 +1,137 @@
+# TFDI MD-11 Radio Panel Controls
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Radio Panel Transfer Buttons - Captain
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_RADIO_PNL_XFER_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_RADIO_PNL_XFER_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_RADIO_PNL_XFER_BT_LEFT_BUTTON_UP
+
+  - # Radio Panel Transfer Buttons - First Officer
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_RADIO_PNL_XFER_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_RADIO_PNL_XFER_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_RADIO_PNL_XFER_BT_LEFT_BUTTON_UP
+
+  - # Radio Panel Transfer Buttons - Observer
+    type: ToggleSwitch
+    var_name: L:MD11_PED_OBS_RADIO_PNL_XFER_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_OBS_RADIO_PNL_XFER_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_OBS_RADIO_PNL_XFER_BT_LEFT_BUTTON_UP
+
+  - # Radio Panel VHF/HF Buttons - Captain
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_RADIO_PNL_VHF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_RADIO_PNL_VHF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_RADIO_PNL_VHF1_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_RADIO_PNL_VHF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_RADIO_PNL_VHF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_RADIO_PNL_VHF2_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_RADIO_PNL_VHF3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_RADIO_PNL_VHF3_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_RADIO_PNL_VHF3_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_RADIO_PNL_HF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_RADIO_PNL_HF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_RADIO_PNL_HF1_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_CPT_RADIO_PNL_HF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_CPT_RADIO_PNL_HF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_CPT_RADIO_PNL_HF2_BT_LEFT_BUTTON_UP
+
+  - # Radio Panel VHF/HF Buttons - First Officer
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_RADIO_PNL_VHF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_RADIO_PNL_VHF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_RADIO_PNL_VHF1_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_RADIO_PNL_VHF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_RADIO_PNL_VHF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_RADIO_PNL_VHF2_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_RADIO_PNL_VHF3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_RADIO_PNL_VHF3_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_RADIO_PNL_VHF3_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_RADIO_PNL_HF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_RADIO_PNL_HF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_RADIO_PNL_HF1_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_FO_RADIO_PNL_HF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_FO_RADIO_PNL_HF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_FO_RADIO_PNL_HF2_BT_LEFT_BUTTON_UP
+
+  - # Radio Panel VHF/HF Buttons - Observer
+    type: ToggleSwitch
+    var_name: L:MD11_PED_OBS_RADIO_PNL_VHF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_OBS_RADIO_PNL_VHF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_OBS_RADIO_PNL_VHF1_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_OBS_RADIO_PNL_VHF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_OBS_RADIO_PNL_VHF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_OBS_RADIO_PNL_VHF2_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_OBS_RADIO_PNL_VHF3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_OBS_RADIO_PNL_VHF3_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_OBS_RADIO_PNL_VHF3_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_OBS_RADIO_PNL_HF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_OBS_RADIO_PNL_HF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_OBS_RADIO_PNL_HF1_BT_LEFT_BUTTON_UP
+  -
+    type: ToggleSwitch
+    var_name: L:MD11_PED_OBS_RADIO_PNL_HF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_OBS_RADIO_PNL_HF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_OBS_RADIO_PNL_HF2_BT_LEFT_BUTTON_UP
+
