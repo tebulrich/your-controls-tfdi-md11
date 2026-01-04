@@ -3,13 +3,13 @@
   "description": "Left Yoke controls",
   "event_count": 6,
   "events": [
-    "LYOKE_AP_BT_LEFT_BUTTON_DOWN",
-    "LYOKE_AP_BT_LEFT_BUTTON_UP",
-    "LYOKE_TRIM_SW_LEFT_BUTTON_DOWN",
-    "LYOKE_TRIM_SW_LEFT_BUTTON_UP",
-    "LYOKE_TRIM_SW_RIGHT_BUTTON_DOWN",
-    "LYOKE_TRIM_SW_RIGHT_BUTTON_UP"
+    "LYOKE_AP_BT_LEFT_BUTTON_DOWN // present",
+    "LYOKE_AP_BT_LEFT_BUTTON_UP // present",
+    "LYOKE_TRIM_SW_LEFT_BUTTON_DOWN // present",
+    "LYOKE_TRIM_SW_LEFT_BUTTON_UP // present",
+    "LYOKE_TRIM_SW_RIGHT_BUTTON_DOWN // present",
+    "LYOKE_TRIM_SW_RIGHT_BUTTON_UP // present"
   ],
-  "present_count": 0,
+  "present_count": 6,
   "total_count": 6
 }

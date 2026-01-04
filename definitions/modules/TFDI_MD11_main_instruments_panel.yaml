@@ -1,0 +1,79 @@
+# TFDI MD-11 Main Instruments Panel (MIP)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Capt Evtmkr
+    type: event
+    event_name: MIP_CAPT_EVTMKR_SW_LEFT_BUTTON_DOWN
+
+  - # Ctr Gear
+    type: event
+    event_name: MIP_CTR_GEAR_BT_LEFT_BUTTON_DOWN
+
+  - # Ctr Gear
+    type: event
+    event_name: MIP_CTR_GEAR_GRD_LEFT_BUTTON_DOWN
+
+  - # Fo Evtmkr
+    type: event
+    event_name: MIP_FO_EVTMKR_SW_LEFT_BUTTON_DOWN
+
+  - # Gear
+    type: event
+    event_name: MIP_GEAR_SW_LEFT_BUTTON_DOWN
+
+  - # Handlerel
+    type: event
+    event_name: MIP_HANDLEREL_BT_LEFT_BUTTON_UP
+
+  - # Isfd Baro
+    type: NumIncrement
+    var_name: L:MD11_MIP_ISFD_BARO_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: MIP_ISFD_BARO_KB_WHEEL_UP
+    down_event_name: MIP_ISFD_BARO_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Isfd Baro
+    type: event
+    event_name: MIP_ISFD_BARO_KB_LEFT_BUTTON_DOWN
+
+  - # Isfd Baro
+    type: event
+    event_name: MIP_ISFD_BARO_KB_LEFT_BUTTON_UP
+
+  - # Isfd Inhp
+    type: ToggleSwitch
+    var_name: L:MD11_MIP_ISFD_INHP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: MIP_ISFD_INHP_BT_LEFT_BUTTON_DOWN
+    off_event_name: MIP_ISFD_INHP_BT_LEFT_BUTTON_UP
+
+  - # Isfd Test
+    type: ToggleSwitch
+    var_name: L:MD11_MIP_ISFD_TEST_BT
+    var_units: Bool
+    var_type: bool
+    event_name: MIP_ISFD_TEST_BT_LEFT_BUTTON_DOWN
+    off_event_name: MIP_ISFD_TEST_BT_LEFT_BUTTON_UP
+
+  - # Stby Ai Cage
+    type: ToggleSwitch
+    var_name: L:MD11_MIP_STBY_AI_CAGE_BT
+    var_units: Bool
+    var_type: bool
+    event_name: MIP_STBY_AI_CAGE_BT_LEFT_BUTTON_DOWN
+    off_event_name: MIP_STBY_AI_CAGE_BT_LEFT_BUTTON_UP
+
+  - # Stby Alt Baro
+    type: NumIncrement
+    var_name: L:MD11_MIP_STBY_ALT_BARO_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: MIP_STBY_ALT_BARO_KB_WHEEL_UP
+    down_event_name: MIP_STBY_ALT_BARO_KB_WHEEL_DOWN
+    increment_by: 1
+

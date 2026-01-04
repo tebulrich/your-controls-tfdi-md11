@@ -1,0 +1,1668 @@
+# TFDI MD-11 Flight Management Computer / Control Display Unit (Left, Right, Center)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # 0
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_0_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_0_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_0_BT_LEFT_BUTTON_UP
+
+  - # 1
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_1_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_1_BT_LEFT_BUTTON_UP
+
+  - # 2
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_2_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_2_BT_LEFT_BUTTON_UP
+
+  - # 3
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_3_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_3_BT_LEFT_BUTTON_UP
+
+  - # 4
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_4_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_4_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_4_BT_LEFT_BUTTON_UP
+
+  - # 5
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_5_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_5_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_5_BT_LEFT_BUTTON_UP
+
+  - # 6
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_6_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_6_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_6_BT_LEFT_BUTTON_UP
+
+  - # 7
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_7_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_7_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_7_BT_LEFT_BUTTON_UP
+
+  - # 8
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_8_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_8_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_8_BT_LEFT_BUTTON_UP
+
+  - # 9
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_9_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_9_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_9_BT_LEFT_BUTTON_UP
+
+  - # A
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_A_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_A_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_A_BT_LEFT_BUTTON_UP
+
+  - # Brt
+    type: NumIncrement
+    var_name: L:MD11_CMCDU_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CMCDU_BRT_KB_WHEEL_UP
+    down_event_name: CMCDU_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # B
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_B_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_B_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_B_BT_LEFT_BUTTON_UP
+
+  - # Clr
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_CLR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_CLR_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_CLR_BT_LEFT_BUTTON_UP
+
+  - # C
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_C_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_C_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_C_BT_LEFT_BUTTON_UP
+
+  - # Dir Intc
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_DIR_INTC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_DIR_INTC_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_DIR_INTC_BT_LEFT_BUTTON_UP
+
+  - # Dot
+    type: event
+    event_name: CMCDU_DOT_BT_LEFT_BUTTON_DOWN
+
+  - # Down
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_DOWN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_DOWN_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_DOWN_BT_LEFT_BUTTON_UP
+
+  - # D
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_D_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_D_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_D_BT_LEFT_BUTTON_UP
+
+  - # Eng Out
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_ENG_OUT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_ENG_OUT_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_ENG_OUT_BT_LEFT_BUTTON_UP
+
+  - # E
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_E_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_E_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_E_BT_LEFT_BUTTON_UP
+
+  - # Fix
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_FIX_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_FIX_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_FIX_BT_LEFT_BUTTON_UP
+
+  - # Fpln
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_FPLN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_FPLN_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_FPLN_BT_LEFT_BUTTON_UP
+
+  - # F
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_F_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_F_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_F_BT_LEFT_BUTTON_UP
+
+  - # G
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_G_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_G_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_G_BT_LEFT_BUTTON_UP
+
+  - # H
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_H_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_H_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_H_BT_LEFT_BUTTON_UP
+
+  - # Init
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_INIT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_INIT_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_INIT_BT_LEFT_BUTTON_UP
+
+  - # I
+    type: event
+    event_name: CMCDU_I_BT_LEFT_BUTTON_UP
+
+  - # J
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_J_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_J_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_J_BT_LEFT_BUTTON_UP
+
+  - # K
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_K_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_K_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_K_BT_LEFT_BUTTON_UP
+
+  - # Lsk 1L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_1L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_1L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_1L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 1R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_1R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_1R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_1R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 2L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_2L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_2L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_2L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 2R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_2R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_2R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_2R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 3L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_3L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_3L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_3L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 3R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_3R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_3R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_3R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 4L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_4L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_4L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_4L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 4R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_4R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_4R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_4R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 5L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_5L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_5L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_5L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 5R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_5R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_5R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_5R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 6L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_6L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_6L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_6L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 6R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_LSK_6R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_LSK_6R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_LSK_6R_BT_LEFT_BUTTON_UP
+
+  - # L
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_L_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_L_BT_LEFT_BUTTON_UP
+
+  - # Menu
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_MENU_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_MENU_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_MENU_BT_LEFT_BUTTON_UP
+
+  - # Minus
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_MINUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_MINUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_MINUS_BT_LEFT_BUTTON_UP
+
+  - # M
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_M_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_M_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_M_BT_LEFT_BUTTON_UP
+
+  - # Nav Rad
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_NAV_RAD_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_NAV_RAD_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_NAV_RAD_BT_LEFT_BUTTON_UP
+
+  - # Nextpage
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_NEXTPAGE_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_NEXTPAGE_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_NEXTPAGE_BT_LEFT_BUTTON_UP
+
+  - # N
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_N_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_N_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_N_BT_LEFT_BUTTON_UP
+
+  - # O
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_O_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_O_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_O_BT_LEFT_BUTTON_UP
+
+  - # Perf
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_PERF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_PERF_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_PERF_BT_LEFT_BUTTON_UP
+
+  - # Plus
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_PLUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_PLUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_PLUS_BT_LEFT_BUTTON_UP
+
+  - # Prog
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_PROG_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_PROG_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_PROG_BT_LEFT_BUTTON_UP
+
+  - # P
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_P_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_P_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_P_BT_LEFT_BUTTON_UP
+
+  - # Q
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_Q_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_Q_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_Q_BT_LEFT_BUTTON_UP
+
+  - # Ref
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_REF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_REF_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_REF_BT_LEFT_BUTTON_UP
+
+  - # R
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_R_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_R_BT_LEFT_BUTTON_UP
+
+  - # Sec Fpln
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_SEC_FPLN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_SEC_FPLN_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_SEC_FPLN_BT_LEFT_BUTTON_UP
+
+  - # Slash
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_SLASH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_SLASH_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_SLASH_BT_LEFT_BUTTON_UP
+
+  - # Sp
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_SP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_SP_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_SP_BT_LEFT_BUTTON_UP
+
+  - # S
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_S_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_S_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_S_BT_LEFT_BUTTON_UP
+
+  - # Toappr
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_TOAPPR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_TOAPPR_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_TOAPPR_BT_LEFT_BUTTON_UP
+
+  - # T
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_T_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_T_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_T_BT_LEFT_BUTTON_UP
+
+  - # Up
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_UP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_UP_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_UP_BT_LEFT_BUTTON_UP
+
+  - # U
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_U_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_U_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_U_BT_LEFT_BUTTON_UP
+
+  - # V
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_V_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_V_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_V_BT_LEFT_BUTTON_UP
+
+  - # W
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_W_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_W_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_W_BT_LEFT_BUTTON_UP
+
+  - # X
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_X_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_X_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_X_BT_LEFT_BUTTON_UP
+
+  - # Y
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_Y_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_Y_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_Y_BT_LEFT_BUTTON_UP
+
+  - # Z
+    type: ToggleSwitch
+    var_name: L:MD11_CMCDU_Z_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CMCDU_Z_BT_LEFT_BUTTON_DOWN
+    off_event_name: CMCDU_Z_BT_LEFT_BUTTON_UP
+
+  - # 0
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_0_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_0_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_0_BT_LEFT_BUTTON_UP
+
+  - # 1
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_1_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_1_BT_LEFT_BUTTON_UP
+
+  - # 2
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_2_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_2_BT_LEFT_BUTTON_UP
+
+  - # 3
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_3_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_3_BT_LEFT_BUTTON_UP
+
+  - # 4
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_4_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_4_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_4_BT_LEFT_BUTTON_UP
+
+  - # 5
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_5_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_5_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_5_BT_LEFT_BUTTON_UP
+
+  - # 6
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_6_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_6_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_6_BT_LEFT_BUTTON_UP
+
+  - # 7
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_7_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_7_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_7_BT_LEFT_BUTTON_UP
+
+  - # 8
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_8_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_8_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_8_BT_LEFT_BUTTON_UP
+
+  - # 9
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_9_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_9_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_9_BT_LEFT_BUTTON_UP
+
+  - # A
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_A_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_A_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_A_BT_LEFT_BUTTON_UP
+
+  - # Brt
+    type: NumIncrement
+    var_name: L:MD11_LMCDU_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: LMCDU_BRT_KB_WHEEL_UP
+    down_event_name: LMCDU_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # B
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_B_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_B_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_B_BT_LEFT_BUTTON_UP
+
+  - # Clr
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_CLR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_CLR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_CLR_BT_LEFT_BUTTON_UP
+
+  - # C
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_C_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_C_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_C_BT_LEFT_BUTTON_UP
+
+  - # Dir Intc
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_DIR_INTC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_DIR_INTC_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_DIR_INTC_BT_LEFT_BUTTON_UP
+
+  - # Dot
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_DOT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_DOT_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_DOT_BT_LEFT_BUTTON_UP
+
+  - # Down
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_DOWN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_DOWN_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_DOWN_BT_LEFT_BUTTON_UP
+
+  - # D
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_D_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_D_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_D_BT_LEFT_BUTTON_UP
+
+  - # Eng Out
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_ENG_OUT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_ENG_OUT_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_ENG_OUT_BT_LEFT_BUTTON_UP
+
+  - # E
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_E_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_E_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_E_BT_LEFT_BUTTON_UP
+
+  - # Fix
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_FIX_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_FIX_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_FIX_BT_LEFT_BUTTON_UP
+
+  - # Fpln
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_FPLN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_FPLN_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_FPLN_BT_LEFT_BUTTON_UP
+
+  - # F
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_F_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_F_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_F_BT_LEFT_BUTTON_UP
+
+  - # G
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_G_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_G_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_G_BT_LEFT_BUTTON_UP
+
+  - # H
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_H_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_H_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_H_BT_LEFT_BUTTON_UP
+
+  - # Init
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_INIT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_INIT_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_INIT_BT_LEFT_BUTTON_UP
+
+  - # I
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_I_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_I_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_I_BT_LEFT_BUTTON_UP
+
+  - # J
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_J_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_J_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_J_BT_LEFT_BUTTON_UP
+
+  - # K
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_K_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_K_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_K_BT_LEFT_BUTTON_UP
+
+  - # Lsk 1L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_1L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_1L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_1L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 1R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_1R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_1R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_1R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 2L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_2L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_2L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_2L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 2R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_2R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_2R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_2R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 3L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_3L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_3L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_3L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 3R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_3R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_3R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_3R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 4L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_4L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_4L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_4L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 4R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_4R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_4R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_4R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 5L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_5L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_5L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_5L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 5R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_5R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_5R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_5R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 6L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_6L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_6L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_6L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 6R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_LSK_6R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_LSK_6R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_LSK_6R_BT_LEFT_BUTTON_UP
+
+  - # L
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_L_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_L_BT_LEFT_BUTTON_UP
+
+  - # Menu
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_MENU_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_MENU_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_MENU_BT_LEFT_BUTTON_UP
+
+  - # Minus
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_MINUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_MINUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_MINUS_BT_LEFT_BUTTON_UP
+
+  - # M
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_M_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_M_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_M_BT_LEFT_BUTTON_UP
+
+  - # Nav Rad
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_NAV_RAD_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_NAV_RAD_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_NAV_RAD_BT_LEFT_BUTTON_UP
+
+  - # Nextpage
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_NEXTPAGE_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_NEXTPAGE_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_NEXTPAGE_BT_LEFT_BUTTON_UP
+
+  - # N
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_N_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_N_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_N_BT_LEFT_BUTTON_UP
+
+  - # O
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_O_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_O_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_O_BT_LEFT_BUTTON_UP
+
+  - # Perf
+    type: event
+    event_name: LMCDU_PERF_BT_LEFT_BUTTON_UP
+
+  - # Plus
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_PLUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_PLUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_PLUS_BT_LEFT_BUTTON_UP
+
+  - # Prog
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_PROG_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_PROG_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_PROG_BT_LEFT_BUTTON_UP
+
+  - # P
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_P_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_P_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_P_BT_LEFT_BUTTON_UP
+
+  - # Q
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_Q_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_Q_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_Q_BT_LEFT_BUTTON_UP
+
+  - # Ref
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_REF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_REF_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_REF_BT_LEFT_BUTTON_UP
+
+  - # R
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_R_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_R_BT_LEFT_BUTTON_UP
+
+  - # Sec Fpln
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_SEC_FPLN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_SEC_FPLN_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_SEC_FPLN_BT_LEFT_BUTTON_UP
+
+  - # Slash
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_SLASH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_SLASH_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_SLASH_BT_LEFT_BUTTON_UP
+
+  - # Sp
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_SP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_SP_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_SP_BT_LEFT_BUTTON_UP
+
+  - # S
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_S_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_S_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_S_BT_LEFT_BUTTON_UP
+
+  - # Toappr
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_TOAPPR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_TOAPPR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_TOAPPR_BT_LEFT_BUTTON_UP
+
+  - # T
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_T_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_T_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_T_BT_LEFT_BUTTON_UP
+
+  - # Up
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_UP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_UP_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_UP_BT_LEFT_BUTTON_UP
+
+  - # U
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_U_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_U_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_U_BT_LEFT_BUTTON_UP
+
+  - # V
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_V_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_V_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_V_BT_LEFT_BUTTON_UP
+
+  - # W
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_W_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_W_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_W_BT_LEFT_BUTTON_UP
+
+  - # X
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_X_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_X_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_X_BT_LEFT_BUTTON_UP
+
+  - # Y
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_Y_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_Y_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_Y_BT_LEFT_BUTTON_UP
+
+  - # Z
+    type: ToggleSwitch
+    var_name: L:MD11_LMCDU_Z_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LMCDU_Z_BT_LEFT_BUTTON_DOWN
+    off_event_name: LMCDU_Z_BT_LEFT_BUTTON_UP
+
+  - # 0
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_0_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_0_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_0_BT_LEFT_BUTTON_UP
+
+  - # 1
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_1_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_1_BT_LEFT_BUTTON_UP
+
+  - # 2
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_2_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_2_BT_LEFT_BUTTON_UP
+
+  - # 3
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_3_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_3_BT_LEFT_BUTTON_UP
+
+  - # 4
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_4_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_4_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_4_BT_LEFT_BUTTON_UP
+
+  - # 5
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_5_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_5_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_5_BT_LEFT_BUTTON_UP
+
+  - # 6
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_6_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_6_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_6_BT_LEFT_BUTTON_UP
+
+  - # 7
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_7_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_7_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_7_BT_LEFT_BUTTON_UP
+
+  - # 8
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_8_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_8_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_8_BT_LEFT_BUTTON_UP
+
+  - # 9
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_9_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_9_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_9_BT_LEFT_BUTTON_UP
+
+  - # A
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_A_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_A_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_A_BT_LEFT_BUTTON_UP
+
+  - # Brt
+    type: NumIncrement
+    var_name: L:MD11_RMCDU_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: RMCDU_BRT_KB_WHEEL_UP
+    down_event_name: RMCDU_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # B
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_B_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_B_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_B_BT_LEFT_BUTTON_UP
+
+  - # Clr
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_CLR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_CLR_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_CLR_BT_LEFT_BUTTON_UP
+
+  - # C
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_C_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_C_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_C_BT_LEFT_BUTTON_UP
+
+  - # Dir Intc
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_DIR_INTC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_DIR_INTC_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_DIR_INTC_BT_LEFT_BUTTON_UP
+
+  - # Dot
+    type: event
+    event_name: RMCDU_DOT_BT_LEFT_BUTTON_UP
+
+  - # Down
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_DOWN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_DOWN_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_DOWN_BT_LEFT_BUTTON_UP
+
+  - # D
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_D_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_D_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_D_BT_LEFT_BUTTON_UP
+
+  - # Eng Out
+    type: event
+    event_name: RMCDU_ENG_OUT_BT_LEFT_BUTTON_DOWN
+
+  - # E
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_E_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_E_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_E_BT_LEFT_BUTTON_UP
+
+  - # Fix
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_FIX_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_FIX_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_FIX_BT_LEFT_BUTTON_UP
+
+  - # Fpln
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_FPLN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_FPLN_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_FPLN_BT_LEFT_BUTTON_UP
+
+  - # F
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_F_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_F_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_F_BT_LEFT_BUTTON_UP
+
+  - # G
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_G_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_G_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_G_BT_LEFT_BUTTON_UP
+
+  - # H
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_H_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_H_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_H_BT_LEFT_BUTTON_UP
+
+  - # Init
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_INIT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_INIT_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_INIT_BT_LEFT_BUTTON_UP
+
+  - # I
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_I_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_I_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_I_BT_LEFT_BUTTON_UP
+
+  - # J
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_J_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_J_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_J_BT_LEFT_BUTTON_UP
+
+  - # K
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_K_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_K_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_K_BT_LEFT_BUTTON_UP
+
+  - # Lsk 1L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_1L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_1L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_1L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 1R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_1R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_1R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_1R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 2L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_2L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_2L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_2L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 2R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_2R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_2R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_2R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 3L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_3L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_3L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_3L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 3R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_3R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_3R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_3R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 4L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_4L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_4L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_4L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 4R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_4R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_4R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_4R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 5L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_5L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_5L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_5L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 5R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_5R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_5R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_5R_BT_LEFT_BUTTON_UP
+
+  - # Lsk 6L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_6L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_6L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_6L_BT_LEFT_BUTTON_UP
+
+  - # Lsk 6R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_LSK_6R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_LSK_6R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_LSK_6R_BT_LEFT_BUTTON_UP
+
+  - # L
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_L_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_L_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_L_BT_LEFT_BUTTON_UP
+
+  - # Menu
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_MENU_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_MENU_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_MENU_BT_LEFT_BUTTON_UP
+
+  - # Minus
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_MINUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_MINUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_MINUS_BT_LEFT_BUTTON_UP
+
+  - # M
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_M_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_M_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_M_BT_LEFT_BUTTON_UP
+
+  - # Nav Rad
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_NAV_RAD_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_NAV_RAD_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_NAV_RAD_BT_LEFT_BUTTON_UP
+
+  - # Nextpage
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_NEXTPAGE_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_NEXTPAGE_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_NEXTPAGE_BT_LEFT_BUTTON_UP
+
+  - # N
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_N_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_N_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_N_BT_LEFT_BUTTON_UP
+
+  - # O
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_O_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_O_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_O_BT_LEFT_BUTTON_UP
+
+  - # Perf
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_PERF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_PERF_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_PERF_BT_LEFT_BUTTON_UP
+
+  - # Plus
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_PLUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_PLUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_PLUS_BT_LEFT_BUTTON_UP
+
+  - # Prog
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_PROG_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_PROG_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_PROG_BT_LEFT_BUTTON_UP
+
+  - # P
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_P_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_P_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_P_BT_LEFT_BUTTON_UP
+
+  - # Q
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_Q_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_Q_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_Q_BT_LEFT_BUTTON_UP
+
+  - # Ref
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_REF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_REF_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_REF_BT_LEFT_BUTTON_UP
+
+  - # R
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_R_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_R_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_R_BT_LEFT_BUTTON_UP
+
+  - # Sec Fpln
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_SEC_FPLN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_SEC_FPLN_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_SEC_FPLN_BT_LEFT_BUTTON_UP
+
+  - # Slash
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_SLASH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_SLASH_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_SLASH_BT_LEFT_BUTTON_UP
+
+  - # Sp
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_SP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_SP_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_SP_BT_LEFT_BUTTON_UP
+
+  - # S
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_S_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_S_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_S_BT_LEFT_BUTTON_UP
+
+  - # Toappr
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_TOAPPR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_TOAPPR_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_TOAPPR_BT_LEFT_BUTTON_UP
+
+  - # T
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_T_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_T_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_T_BT_LEFT_BUTTON_UP
+
+  - # Up
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_UP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_UP_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_UP_BT_LEFT_BUTTON_UP
+
+  - # U
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_U_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_U_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_U_BT_LEFT_BUTTON_UP
+
+  - # V
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_V_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_V_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_V_BT_LEFT_BUTTON_UP
+
+  - # W
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_W_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_W_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_W_BT_LEFT_BUTTON_UP
+
+  - # X
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_X_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_X_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_X_BT_LEFT_BUTTON_UP
+
+  - # Y
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_Y_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_Y_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_Y_BT_LEFT_BUTTON_UP
+
+  - # Z
+    type: ToggleSwitch
+    var_name: L:MD11_RMCDU_Z_BT
+    var_units: Bool
+    var_type: bool
+    event_name: RMCDU_Z_BT_LEFT_BUTTON_DOWN
+    off_event_name: RMCDU_Z_BT_LEFT_BUTTON_UP
+

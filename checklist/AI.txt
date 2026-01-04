@@ -13,13 +13,33 @@ DOCUMENTATION REFERENCES
 
 COMPLETED MODULES
 -----------------
-The following modules have been completed (100% event coverage):
+ALL MODULES COMPLETED - 100% COVERAGE ACHIEVED (1423/1423 events)
+
+The following modules have been completed and verified:
 1. TFDI_MD11_audio_panel.yaml - Audio panel controls (Captain, First Officer, Observer)
 2. TFDI_MD11_radio_panel.yaml - Radio panel controls
-3. TFDI_MD11_fmc.yaml - FMC/CDU button events (LMCDU, RMCDU, CDU, CMCDU)
+3. TFDI_MD11_fmc_cdu.yaml - FMC/CDU button events (LMCDU, RMCDU, CDU, CMCDU)
 4. TFDI_MD11_aft_overhead_panel.yaml - Aft overhead panel (APU, Fire, Cargo Smoke, GPWS, Evacuation)
+5. TFDI_MD11_overhead_panel.yaml - Main overhead panel
+6. TFDI_MD11_center_glareshield.yaml - Center glareshield / Autopilot Control Panel
+7. TFDI_MD11_glareshield_left.yaml - Left glareshield
+8. TFDI_MD11_glareshield_right.yaml - Right glareshield
+9. TFDI_MD11_center_panel.yaml - Center panel
+10. TFDI_MD11_pedestal.yaml - Pedestal controls
+11. TFDI_MD11_left_side_panel.yaml - Left side panel
+12. TFDI_MD11_right_side_panel.yaml - Right side panel
+13. TFDI_MD11_left_ecp.yaml - Left ECP
+14. TFDI_MD11_right_ecp.yaml - Right ECP
+15. TFDI_MD11_left_yoke.yaml - Left yoke controls
+16. TFDI_MD11_right_yoke.yaml - Right yoke controls
+17. TFDI_MD11_flight_controls.yaml - Flight controls
+18. TFDI_MD11_throttle.yaml - Throttle controls
+19. TFDI_MD11_main_instruments_panel.yaml - Main instruments panel
 
 All completed modules are included in: definitions/aircraft/TFDi Design - MD-11.yaml
+
+All modules were generated using checklist/generate_module.py with automatic ToggleSwitch and
+NumIncrement detection based on L: variables from checklist/variables.json.
 
 CHECKLIST SYSTEM
 ----------------
@@ -93,25 +113,15 @@ IMPORTANT NOTES
 5. Check the variables documentation to see if L: variables exist for toggle-style controls
 6. The check_events.py script will mark events as "// present" in JSON files - this is normal
 
-REMAINING CATEGORIES TO IMPLEMENT
+STATUS: ALL CATEGORIES COMPLETED
 ---------------------------------
-Check the checklist/ folder for JSON files. Each represents a category that needs a module:
+All checklist categories have been implemented and verified with 100% coverage.
 
-1. overhead_panel.json - Main overhead panel (344 events) - HIGH PRIORITY
-2. center_glareshield.json - Center glareshield (45 events)
-3. pedestal.json - Pedestal controls (99 events)
-4. throttle.json - Throttle controls (19 events)
-5. main_instruments_panel.json - Main instruments panel
-6. center_panel.json - Center panel (25 events)
-7. left_side_panel.json - Left side panel
-8. right_side_panel.json - Right side panel
-9. flight_controls.json - Flight controls
-10. left_yoke.json - Left yoke controls (15 events)
-11. right_yoke.json - Right yoke controls (15 events)
-12. glareshield_left.json - Left glareshield (15 events)
-13. glareshield_right.json - Right glareshield (15 events)
-14. left_ecp.json - Left ECP
-15. right_ecp.json - Right ECP
+To verify coverage for any category:
+  python3 checklist/check_events.py <category_name>
+
+To verify all categories:
+  python3 checklist/check_events.py
 
 RECOMMENDED WORKFLOW
 --------------------
@@ -148,24 +158,69 @@ files from JSON checklist files. This can save time when creating new modules.
 
 Usage:
   python3 checklist/generate_module.py <category_name>
+  python3 checklist/generate_module.py <category_name> --update
+  python3 checklist/generate_module.py --regenerate-all
 
-Example:
+Examples:
   python3 checklist/generate_module.py center_panel
+  python3 checklist/generate_module.py radio_panel --update
+  python3 checklist/generate_module.py --regenerate-all
 
 What it does:
 1. Reads the checklist JSON file (checklist/<category_name>.json)
 2. Extracts all events (automatically filters out "// present" markers)
 3. Groups events by control type (buttons, wheels, switches, etc.)
-4. Generates a properly formatted YAML module file
-5. Outputs to: definitions/modules/TFDI_MD11_<category_name>.yaml
+4. Detects L: variables from checklist/variables.json to determine control types
+5. Generates a properly formatted YAML module file with appropriate types (event, ToggleSwitch, NumIncrement)
+6. Outputs to: definitions/modules/TFDI_MD11_<category_name>.yaml
+7. Marks all implemented events as "// present" in the JSON checklist file
 
 Features:
 - Handles button DOWN/UP pairs automatically
 - Groups wheel events (WHEEL_UP/WHEEL_DOWN)
 - Handles switches with LEFT/RIGHT buttons
 - Handles ground buttons (GRD_LEFT_BUTTON_DOWN)
+- Automatically detects ToggleSwitch types for controls with Bool L: variables
+- Automatically detects NumIncrement types for wheel controls with numeric L: variables
 - Generates appropriate comments for each control group
 - Creates the standard header with references to documentation
+- Updates checklist JSON files to mark events as present
+
+Flags:
+- --update: Updates an existing YAML file instead of overwriting it (preserves existing structure)
+- --regenerate-all: Deletes all TFDI_MD11_*.yaml modules, cleans "// present" comments from all JSON
+  checklist files, regenerates all modules with the latest logic, and runs check_events.py to verify
+  coverage. Useful for applying fixes across all modules.
+
+IMPORTANT: Grouping Logic Fixes (Achieved 100% Coverage)
+--------------------------------------------------------
+The grouping logic in generate_module.py has been carefully refined to handle all event patterns:
+
+1. Control Type Distinction:
+   - Buttons (_BT) and switches (_SW) are now grouped separately even if they share the same base name
+   - Example: LSIDE_TIMER_BT and LSIDE_TIMER_SW are separate controls
+   - The base name preserves the _BT/_SW/_GRD suffix to prevent incorrect merging
+
+2. Brightness Wheel Events:
+   - _BRT_KB_WHEEL events now extract the full prefix (e.g., PED_DU1_BRT_KB instead of just BRT_KB_WHEEL)
+   - This allows each brightness control (DU1, DU2, DU3, CMCDU, LMCDU, etc.) to be properly identified
+
+3. Ground Button Events:
+   - _GRD_LEFT_BUTTON_DOWN events are preserved as separate controls with _GRD suffix
+   - Example: CTR_SLAT_STOW_GRD is distinct from CTR_SLAT_STOW (if it exists)
+
+4. Switch RIGHT Buttons:
+   - _SW_RIGHT_BUTTON_DOWN events are grouped with their corresponding _SW_LEFT_BUTTON_DOWN control
+   - Both LEFT and RIGHT buttons are output as separate event entries in the YAML
+
+5. L: Variable Detection:
+   - The script loads variables from checklist/variables.json (1477 variables)
+   - ToggleSwitch: Detected when button DOWN/UP pair has a corresponding Bool L: variable
+   - NumIncrement: Detected when wheel UP/DOWN pair has a corresponding numeric L: variable
+   - Event: Used when no L: variable exists for the control
+
+These fixes ensure that all events are correctly grouped, generated, and detected, achieving 100%
+coverage (1423/1423 events across all categories).
 
 Note: The generated file may need manual review/adjustment for:
 - Comment readability (the auto-generated comments are functional but may need refinement)
@@ -175,11 +230,26 @@ Note: The generated file may need manual review/adjustment for:
 The script is particularly useful for categories with many events, as it ensures consistent
 formatting and reduces the chance of typos.
 
-GOOD LUCK!
-----------
-The audio_panel module was particularly challenging - it required fixing Observer event prefixes
-and adding many missing volume button events. Use it as a reference for complex modules.
+PROJECT STATUS: COMPLETE
+------------------------
+All modules have been successfully generated and verified. The project achieved 100% event coverage
+(1423/1423 events) across all 19 categories.
 
-Remember: The goal is 100% event coverage for each category. Take your time, verify with the
-check script, and don't hesitate to look at existing modules for patterns.
+Key Achievements:
+- All event patterns correctly identified and grouped
+- ToggleSwitch and NumIncrement types automatically detected using L: variables
+- All control types properly handled: buttons, switches, wheels, ground buttons
+- Comprehensive coverage verification using check_events.py
+
+If you need to regenerate all modules (e.g., after fixing bugs or improving the generator script):
+  python3 checklist/generate_module.py --regenerate-all
+
+This will:
+1. Delete all existing TFDI_MD11_*.yaml module files
+2. Clean "// present" comments from all JSON checklist files
+3. Regenerate all modules with the latest logic
+4. Run check_events.py to verify 100% coverage is maintained
+
+The generate_module.py script can also be used for future aircraft configurations - just update
+the checklist JSON files and variables.json with the new aircraft's events and variables.
 

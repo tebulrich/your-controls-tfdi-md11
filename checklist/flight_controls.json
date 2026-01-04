@@ -3,16 +3,16 @@
   "description": "Flight Controls (Flaps, Doors, EFB, Speedbrake, etc.)",
   "event_count": 9,
   "events": [
-    "DIALAFLAP_WHEEL_RNG_WHEEL_DOWN",
-    "DIALAFLAP_WHEEL_RNG_WHEEL_UP",
-    "EFB_TOGGLE_LEFT_BUTTON_DOWN",
-    "FLAP_LATCH_WHEEL_DOWN",
-    "FLAP_LATCH_WHEEL_UP",
-    "FLIGHTDECK_DOOR_LEFT_BUTTON_DOWN",
-    "SPDBRK_HANDLE_LEFT_BUTTON_DOWN",
-    "SPDBRK_HANDLE_WHEEL_DOWN",
-    "SPDBRK_HANDLE_WHEEL_UP"
+    "DIALAFLAP_WHEEL_RNG_WHEEL_DOWN // present",
+    "DIALAFLAP_WHEEL_RNG_WHEEL_UP // present",
+    "EFB_TOGGLE_LEFT_BUTTON_DOWN // present",
+    "FLAP_LATCH_WHEEL_DOWN // present",
+    "FLAP_LATCH_WHEEL_UP // present",
+    "FLIGHTDECK_DOOR_LEFT_BUTTON_DOWN // present",
+    "SPDBRK_HANDLE_LEFT_BUTTON_DOWN // present",
+    "SPDBRK_HANDLE_WHEEL_DOWN // present",
+    "SPDBRK_HANDLE_WHEEL_UP // present"
   ],
-  "present_count": 0,
+  "present_count": 9,
   "total_count": 9
 }

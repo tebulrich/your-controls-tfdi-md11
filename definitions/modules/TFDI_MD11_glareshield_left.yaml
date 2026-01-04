@@ -1,0 +1,29 @@
+# TFDI MD-11 Glareshield Left (Master Warning/Caution, GS)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Gs
+    type: ToggleSwitch
+    var_name: L:MD11_GSL_GS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: GSL_GS_BT_LEFT_BUTTON_DOWN
+    off_event_name: GSL_GS_BT_LEFT_BUTTON_UP
+
+  - # Mst Caut
+    type: ToggleSwitch
+    var_name: L:MD11_GSL_MST_CAUT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: GSL_MST_CAUT_BT_LEFT_BUTTON_DOWN
+    off_event_name: GSL_MST_CAUT_BT_LEFT_BUTTON_UP
+
+  - # Mst Wrn
+    type: ToggleSwitch
+    var_name: L:MD11_GSL_MST_WRN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: GSL_MST_WRN_BT_LEFT_BUTTON_DOWN
+    off_event_name: GSL_MST_WRN_BT_LEFT_BUTTON_UP
+

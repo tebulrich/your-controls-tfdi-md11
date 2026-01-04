@@ -13,6 +13,15 @@ include:
   - definitions/modules/TFDI_MD11_radio_panel.yaml
   - definitions/modules/TFDI_MD11_fmc.yaml
   - definitions/modules/TFDI_MD11_aft_overhead_panel.yaml
+  - definitions/modules/TFDI_MD11_center_glareshield.yaml
+  - definitions/modules/TFDI_MD11_center_panel.yaml
+  - definitions/modules/TFDI_MD11_flight_controls.yaml
+  - definitions/modules/TFDI_MD11_glareshield_left.yaml
+  - definitions/modules/TFDI_MD11_glareshield_right.yaml
+  - definitions/modules/TFDI_MD11_left_ecp.yaml
+  - definitions/modules/TFDI_MD11_right_ecp.yaml
+  - definitions/modules/TFDI_MD11_left_yoke.yaml
+  - definitions/modules/TFDI_MD11_right_yoke.yaml
 
 shared:
   - # Brakes

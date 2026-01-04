@@ -1,0 +1,191 @@
+# TFDI MD-11 Center Glareshield / Autopilot Control Panel
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Afsovrd1
+    type: event
+    event_name: CGS_AFSOVRD1_SW_LEFT_BUTTON_DOWN
+
+  - # Afsovrd2
+    type: event
+    event_name: CGS_AFSOVRD2_SW_LEFT_BUTTON_DOWN
+
+  - # Alt
+    type: NumIncrement
+    var_name: L:MD11_CGS_ALT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CGS_ALT_KB_WHEEL_UP
+    down_event_name: CGS_ALT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Alt Pull
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_ALT_PULL_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_ALT_PULL_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_ALT_PULL_BT_LEFT_BUTTON_UP
+
+  - # Alt Push
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_ALT_PUSH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_ALT_PUSH_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_ALT_PUSH_BT_LEFT_BUTTON_UP
+
+  - # Apprland
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_APPRLAND_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_APPRLAND_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_APPRLAND_BT_LEFT_BUTTON_UP
+
+  - # Autoflight
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_AUTOFLIGHT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_AUTOFLIGHT_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_AUTOFLIGHT_BT_LEFT_BUTTON_UP
+
+  - # Flood Lt
+    type: NumIncrement
+    var_name: L:MD11_CGS_FLOOD_LT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CGS_FLOOD_LT_KB_WHEEL_UP
+    down_event_name: CGS_FLOOD_LT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Fmsspd
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_FMSSPD_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_FMSSPD_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_FMSSPD_BT_LEFT_BUTTON_UP
+
+  - # Ftm
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_FTM_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_FTM_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_FTM_BT_LEFT_BUTTON_UP
+
+  - # Hdgtrk
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_HDGTRK_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_HDGTRK_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_HDGTRK_BT_LEFT_BUTTON_UP
+
+  - # Hdg Base
+    type: event
+    event_name: CGS_HDG_BASE_KB_LEFT_BUTTON_DOWN
+
+  - # Hdg Base
+    type: event
+    event_name: CGS_HDG_BASE_KB_RIGHT_BUTTON_DOWN
+
+  - # Hdg
+    type: NumIncrement
+    var_name: L:MD11_CGS_HDG_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CGS_HDG_KB_WHEEL_UP
+    down_event_name: CGS_HDG_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Hdg Pull
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_HDG_PULL_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_HDG_PULL_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_HDG_PULL_BT_LEFT_BUTTON_UP
+
+  - # Hdg Push
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_HDG_PUSH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_HDG_PUSH_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_HDG_PUSH_BT_LEFT_BUTTON_UP
+
+  - # Iasmach
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_IASMACH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_IASMACH_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_IASMACH_BT_LEFT_BUTTON_UP
+
+  - # Nav
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_NAV_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_NAV_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_NAV_BT_LEFT_BUTTON_UP
+
+  - # Pnl Lt
+    type: NumIncrement
+    var_name: L:MD11_CGS_PNL_LT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CGS_PNL_LT_KB_WHEEL_UP
+    down_event_name: CGS_PNL_LT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Prof
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_PROF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_PROF_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_PROF_BT_LEFT_BUTTON_UP
+
+  - # Spd
+    type: NumIncrement
+    var_name: L:MD11_CGS_SPD_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CGS_SPD_KB_WHEEL_UP
+    down_event_name: CGS_SPD_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Spd Pull
+    type: event
+    event_name: CGS_SPD_PULL_BT_LEFT_BUTTON_UP
+
+  - # Spd Push
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_SPD_PUSH_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_SPD_PUSH_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_SPD_PUSH_BT_LEFT_BUTTON_UP
+
+  - # Vsfpa
+    type: ToggleSwitch
+    var_name: L:MD11_CGS_VSFPA_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CGS_VSFPA_BT_LEFT_BUTTON_DOWN
+    off_event_name: CGS_VSFPA_BT_LEFT_BUTTON_UP
+
+  - # Vs
+    type: NumIncrement
+    var_name: L:MD11_CGS_VS_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: CGS_VS_KB_WHEEL_UP
+    down_event_name: CGS_VS_KB_WHEEL_DOWN
+    increment_by: 1
+

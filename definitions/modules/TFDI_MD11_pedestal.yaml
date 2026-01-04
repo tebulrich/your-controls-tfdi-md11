@@ -1,0 +1,413 @@
+# TFDI MD-11 Pedestal Controls (Trim, System Display, Weather Radar, Transponder, Display Units, Radio Frequency Selectors, etc.)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # PED_ADG_LVR_LEFT_BUTTON_DOWN
+    type: event
+    event_name: PED_ADG_LVR_LEFT_BUTTON_DOWN
+
+  - # Ail Trim
+    type: NumIncrement
+    var_name: L:MD11_PED_AIL_TRIM_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_AIL_TRIM_KB_WHEEL_UP
+    down_event_name: PED_AIL_TRIM_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Ckptdoor Lock
+    type: event
+    event_name: PED_CKPTDOOR_LOCK_KB_LEFT_BUTTON_DOWN
+
+  - # Ckptdoor Lock
+    type: event
+    event_name: PED_CKPTDOOR_LOCK_KB_RIGHT_BUTTON_DOWN
+
+  - # Cpt Inner Radio Freq Sel
+    type: NumIncrement
+    var_name: L:MD11_PED_CPT_INNER_RADIO_FREQ_SEL_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_CPT_INNER_RADIO_FREQ_SEL_KB_WHEEL_UP
+    down_event_name: PED_CPT_INNER_RADIO_FREQ_SEL_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Cpt Outer Radio Freq Sel
+    type: event
+    event_name: PED_CPT_OUTER_RADIO_FREQ_SEL_KB_WHEEL_UP
+
+  - # Du1 Brt
+    type: NumIncrement
+    var_name: L:MD11_PED_DU1_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_DU1_BRT_KB_WHEEL_UP
+    down_event_name: PED_DU1_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Du2 Brt
+    type: NumIncrement
+    var_name: L:MD11_PED_DU2_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_DU2_BRT_KB_WHEEL_UP
+    down_event_name: PED_DU2_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Du3 Brt
+    type: NumIncrement
+    var_name: L:MD11_PED_DU3_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_DU3_BRT_KB_WHEEL_UP
+    down_event_name: PED_DU3_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Du4 Brt
+    type: NumIncrement
+    var_name: L:MD11_PED_DU4_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_DU4_BRT_KB_WHEEL_UP
+    down_event_name: PED_DU4_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Du5 Brt
+    type: NumIncrement
+    var_name: L:MD11_PED_DU5_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_DU5_BRT_KB_WHEEL_UP
+    down_event_name: PED_DU5_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Du6 Brt
+    type: NumIncrement
+    var_name: L:MD11_PED_DU6_BRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_DU6_BRT_KB_WHEEL_UP
+    down_event_name: PED_DU6_BRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Fo Inner Radio Freq Sel
+    type: NumIncrement
+    var_name: L:MD11_PED_FO_INNER_RADIO_FREQ_SEL_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_FO_INNER_RADIO_FREQ_SEL_KB_WHEEL_UP
+    down_event_name: PED_FO_INNER_RADIO_FREQ_SEL_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Fo Outer Radio Freq Sel
+    type: NumIncrement
+    var_name: L:MD11_PED_FO_OUTER_RADIO_FREQ_SEL_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_FO_OUTER_RADIO_FREQ_SEL_KB_WHEEL_UP
+    down_event_name: PED_FO_OUTER_RADIO_FREQ_SEL_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Obs Inner Radio Freq Sel
+    type: NumIncrement
+    var_name: L:MD11_PED_OBS_INNER_RADIO_FREQ_SEL_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_OBS_INNER_RADIO_FREQ_SEL_KB_WHEEL_UP
+    down_event_name: PED_OBS_INNER_RADIO_FREQ_SEL_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Obs Outer Radio Freq Sel
+    type: NumIncrement
+    var_name: L:MD11_PED_OBS_OUTER_RADIO_FREQ_SEL_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_OBS_OUTER_RADIO_FREQ_SEL_KB_WHEEL_UP
+    down_event_name: PED_OBS_OUTER_RADIO_FREQ_SEL_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Rud Trim
+    type: event
+    event_name: PED_RUD_TRIM_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_RUD_TRIM_SW_RIGHT_BUTTON_DOWN
+
+  - # Rud Trim
+    type: event
+    event_name: PED_RUD_TRIM_SW_LEFT_BUTTON_UP
+
+  - # Rud Trim
+    type: event
+    event_name: PED_RUD_TRIM_SW_RIGHT_BUTTON_UP
+
+  - # Sd Air
+    type: event
+    event_name: PED_SD_AIR_BT_LEFT_BUTTON_UP
+
+  - # Sd Config
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_CONFIG_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_CONFIG_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_CONFIG_BT_LEFT_BUTTON_UP
+
+  - # Sd Conseq
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_CONSEQ_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_CONSEQ_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_CONSEQ_BT_LEFT_BUTTON_UP
+
+  - # Sd Elec
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_ELEC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_ELEC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_ELEC_BT_LEFT_BUTTON_UP
+
+  - # Sd Eng
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_ENG_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_ENG_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_ENG_BT_LEFT_BUTTON_UP
+
+  - # Sd Fuel
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_FUEL_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_FUEL_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_FUEL_BT_LEFT_BUTTON_UP
+
+  - # Sd Hyd
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_HYD_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_HYD_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_HYD_BT_LEFT_BUTTON_UP
+
+  - # Sd Misc
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_MISC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_MISC_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_MISC_BT_LEFT_BUTTON_UP
+
+  - # Sd Nd
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_ND_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_ND_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_ND_BT_LEFT_BUTTON_UP
+
+  - # Sd Status
+    type: ToggleSwitch
+    var_name: L:MD11_PED_SD_STATUS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_SD_STATUS_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_SD_STATUS_BT_LEFT_BUTTON_UP
+
+  - # Wxr Gain
+    type: NumIncrement
+    var_name: L:MD11_PED_WXR_GAIN_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_WXR_GAIN_KB_WHEEL_UP
+    down_event_name: PED_WXR_GAIN_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Wxr Idnt
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_IDNT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_IDNT_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_IDNT_BT_LEFT_BUTTON_UP
+
+  - # Wxr Map
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_MAP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_MAP_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_MAP_BT_LEFT_BUTTON_UP
+
+  - # Wxr Off
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_OFF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_OFF_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_OFF_BT_LEFT_BUTTON_UP
+
+  - # Wxr Stab
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_STAB_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_STAB_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_STAB_BT_LEFT_BUTTON_UP
+
+  - # Wxr Sys
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_SYS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_SYS_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_SYS_BT_LEFT_BUTTON_UP
+
+  - # Wxr Test
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_TEST_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_TEST_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_TEST_BT_LEFT_BUTTON_UP
+
+  - # Wxr Tilt
+    type: NumIncrement
+    var_name: L:MD11_PED_WXR_TILT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: PED_WXR_TILT_KB_WHEEL_UP
+    down_event_name: PED_WXR_TILT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Wxr Wxt
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_WXT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_WXT_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_WXT_BT_LEFT_BUTTON_UP
+
+  - # Wxr Wx
+    type: ToggleSwitch
+    var_name: L:MD11_PED_WXR_WX_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_WXR_WX_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_WXR_WX_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 0
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_0_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_0_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_0_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 1
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_1_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_1_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 2
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_2_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_2_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 3
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_3_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_3_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_3_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 4
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_4_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_4_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_4_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 5
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_5_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_5_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_5_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 6
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_6_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_6_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_6_BT_LEFT_BUTTON_UP
+
+  - # Xpndr 7
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_7_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_7_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_7_BT_LEFT_BUTTON_UP
+
+  - # Xpndr Abv Blw
+    type: event
+    event_name: PED_XPNDR_ABV_BLW_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: PED_XPNDR_ABV_BLW_SW_RIGHT_BUTTON_DOWN
+
+  - # Xpndr Alt Rptg
+    type: event
+    event_name: PED_XPNDR_ALT_RPTG_KB_LEFT_BUTTON_DOWN
+
+  - # Xpndr Clr
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_CLR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_CLR_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_CLR_BT_LEFT_BUTTON_UP
+
+  - # Xpndr Ident
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_IDENT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_IDENT_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_IDENT_BT_LEFT_BUTTON_UP
+
+  - # Xpndr Mode
+    type: event
+    event_name: PED_XPNDR_MODE_KB_LEFT_BUTTON_DOWN
+
+  - # Xpndr Mode
+    type: event
+    event_name: PED_XPNDR_MODE_KB_RIGHT_BUTTON_DOWN
+
+  - # Xpndr Sel
+    type: event
+    event_name: PED_XPNDR_SEL_KB_LEFT_BUTTON_DOWN
+
+  - # Xpndr Test
+    type: ToggleSwitch
+    var_name: L:MD11_PED_XPNDR_TEST_BT
+    var_units: Bool
+    var_type: bool
+    event_name: PED_XPNDR_TEST_BT_LEFT_BUTTON_DOWN
+    off_event_name: PED_XPNDR_TEST_BT_LEFT_BUTTON_UP
+

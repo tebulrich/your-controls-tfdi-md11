@@ -1,0 +1,41 @@
+# TFDI MD-11 Flight Controls (Flaps, Doors, EFB, Speedbrake, etc.)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # DIALAFLAP_WHEEL_RNG_WHEEL_DOWN
+    type: event
+    event_name: DIALAFLAP_WHEEL_RNG_WHEEL_DOWN
+
+  - # DIALAFLAP_WHEEL_RNG_WHEEL_UP
+    type: event
+    event_name: DIALAFLAP_WHEEL_RNG_WHEEL_UP
+
+  - # EFB_TOGGLE_LEFT_BUTTON_DOWN
+    type: event
+    event_name: EFB_TOGGLE_LEFT_BUTTON_DOWN
+
+  - # FLAP_LATCH_WHEEL_DOWN
+    type: event
+    event_name: FLAP_LATCH_WHEEL_DOWN
+
+  - # FLAP_LATCH_WHEEL_UP
+    type: event
+    event_name: FLAP_LATCH_WHEEL_UP
+
+  - # FLIGHTDECK_DOOR_LEFT_BUTTON_DOWN
+    type: event
+    event_name: FLIGHTDECK_DOOR_LEFT_BUTTON_DOWN
+
+  - # SPDBRK_HANDLE_LEFT_BUTTON_DOWN
+    type: event
+    event_name: SPDBRK_HANDLE_LEFT_BUTTON_DOWN
+
+  - # SPDBRK_HANDLE_WHEEL_DOWN
+    type: event
+    event_name: SPDBRK_HANDLE_WHEEL_DOWN
+
+  - # SPDBRK_HANDLE_WHEEL_UP
+    type: event
+    event_name: SPDBRK_HANDLE_WHEEL_UP
+

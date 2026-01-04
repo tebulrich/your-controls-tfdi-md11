@@ -3,13 +3,13 @@
   "description": "Right Yoke controls",
   "event_count": 6,
   "events": [
-    "RYOKE_AP_BT_LEFT_BUTTON_DOWN",
-    "RYOKE_AP_BT_LEFT_BUTTON_UP",
-    "RYOKE_TRIM_SW_LEFT_BUTTON_DOWN",
-    "RYOKE_TRIM_SW_LEFT_BUTTON_UP",
-    "RYOKE_TRIM_SW_RIGHT_BUTTON_DOWN",
-    "RYOKE_TRIM_SW_RIGHT_BUTTON_UP"
+    "RYOKE_AP_BT_LEFT_BUTTON_DOWN // present",
+    "RYOKE_AP_BT_LEFT_BUTTON_UP // present",
+    "RYOKE_TRIM_SW_LEFT_BUTTON_DOWN // present",
+    "RYOKE_TRIM_SW_LEFT_BUTTON_UP // present",
+    "RYOKE_TRIM_SW_RIGHT_BUTTON_DOWN // present",
+    "RYOKE_TRIM_SW_RIGHT_BUTTON_UP // present"
   ],
-  "present_count": 0,
+  "present_count": 6,
   "total_count": 6
 }

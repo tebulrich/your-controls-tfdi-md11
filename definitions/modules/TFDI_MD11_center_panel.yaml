@@ -1,0 +1,68 @@
+# TFDI MD-11 Center Panel (Autobrake, Flight Number, Slats, etc.)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Antiskid
+    type: ToggleSwitch
+    var_name: L:MD11_CTR_ANTISKID_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CTR_ANTISKID_BT_LEFT_BUTTON_DOWN
+    off_event_name: CTR_ANTISKID_BT_LEFT_BUTTON_UP
+
+  - # Autobrake
+    type: event
+    event_name: CTR_AUTOBRAKE_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: CTR_AUTOBRAKE_SW_RIGHT_BUTTON_DOWN
+
+  - # Aux Hyd Pump
+    type: event
+    event_name: CTR_AUX_HYD_PUMP_BT_LEFT_BUTTON_DOWN
+
+  - # Fltno1
+    type: event
+    event_name: CTR_FLTNO1_SW_WHEEL_DOWN
+
+  - # Fltno1
+    type: event
+    event_name: CTR_FLTNO1_SW_WHEEL_UP
+
+  - # Fltno2
+    type: event
+    event_name: CTR_FLTNO2_SW_WHEEL_DOWN
+
+  - # Fltno2
+    type: event
+    event_name: CTR_FLTNO2_SW_WHEEL_UP
+
+  - # Fltno3
+    type: event
+    event_name: CTR_FLTNO3_SW_WHEEL_DOWN
+
+  - # Fltno3
+    type: event
+    event_name: CTR_FLTNO3_SW_WHEEL_UP
+
+  - # Fltno4
+    type: event
+    event_name: CTR_FLTNO4_SW_WHEEL_DOWN
+
+  - # Fltno4
+    type: event
+    event_name: CTR_FLTNO4_SW_WHEEL_UP
+
+  - # Slat Stow
+    type: ToggleSwitch
+    var_name: L:MD11_CTR_SLAT_STOW_BT
+    var_units: Bool
+    var_type: bool
+    event_name: CTR_SLAT_STOW_BT_LEFT_BUTTON_DOWN
+    off_event_name: CTR_SLAT_STOW_BT_LEFT_BUTTON_UP
+
+  - # Slat Stow
+    type: event
+    event_name: CTR_SLAT_STOW_GRD_LEFT_BUTTON_DOWN
+

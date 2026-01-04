@@ -1,0 +1,80 @@
+# TFDI MD-11 Throttle Quadrant Controls
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # C Fuel
+    type: event
+    event_name: THR_C_FUEL_SW_LEFT_BUTTON_DOWN
+
+  - # C Start
+    type: event
+    event_name: THR_C_START_SW_LEFT_BUTTON_DOWN
+
+  - # Ga
+    type: ToggleSwitch
+    var_name: L:MD11_THR_GA_BT
+    var_units: Bool
+    var_type: bool
+    event_name: THR_GA_BT_LEFT_BUTTON_DOWN
+    off_event_name: THR_GA_BT_LEFT_BUTTON_UP
+
+  - # Gear Horn
+    type: ToggleSwitch
+    var_name: L:MD11_THR_GEAR_HORN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: THR_GEAR_HORN_BT_LEFT_BUTTON_DOWN
+    off_event_name: THR_GEAR_HORN_BT_LEFT_BUTTON_UP
+
+  - # Long Trim
+    type: event
+    event_name: THR_LONG_TRIM_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: THR_LONG_TRIM_SW_RIGHT_BUTTON_DOWN
+
+  - # Long Trim
+    type: event
+    event_name: THR_LONG_TRIM_SW_LEFT_BUTTON_UP
+
+  - # Long Trim
+    type: event
+    event_name: THR_LONG_TRIM_SW_RIGHT_BUTTON_UP
+
+  - # L Ats
+    type: ToggleSwitch
+    var_name: L:MD11_THR_L_ATS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: THR_L_ATS_BT_LEFT_BUTTON_DOWN
+    off_event_name: THR_L_ATS_BT_LEFT_BUTTON_UP
+
+  - # L Fuel
+    type: event
+    event_name: THR_L_FUEL_SW_LEFT_BUTTON_DOWN
+
+  - # L Start
+    type: event
+    event_name: THR_L_START_SW_LEFT_BUTTON_DOWN
+
+  - # THR_PARK_LVR_LEFT_BUTTON_DOWN
+    type: event
+    event_name: THR_PARK_LVR_LEFT_BUTTON_DOWN
+
+  - # R Ats
+    type: ToggleSwitch
+    var_name: L:MD11_THR_R_ATS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: THR_R_ATS_BT_LEFT_BUTTON_DOWN
+    off_event_name: THR_R_ATS_BT_LEFT_BUTTON_UP
+
+  - # R Fuel
+    type: event
+    event_name: THR_R_FUEL_SW_LEFT_BUTTON_DOWN
+
+  - # R Start
+    type: event
+    event_name: THR_R_START_SW_LEFT_BUTTON_DOWN
+

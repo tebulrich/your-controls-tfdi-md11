@@ -1,0 +1,28 @@
+# TFDI MD-11 Left Yoke controls
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Ap
+    type: ToggleSwitch
+    var_name: L:MD11_LYOKE_AP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LYOKE_AP_BT_LEFT_BUTTON_DOWN
+    off_event_name: LYOKE_AP_BT_LEFT_BUTTON_UP
+
+  - # Trim
+    type: event
+    event_name: LYOKE_TRIM_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: LYOKE_TRIM_SW_RIGHT_BUTTON_DOWN
+
+  - # Trim
+    type: event
+    event_name: LYOKE_TRIM_SW_LEFT_BUTTON_UP
+
+  - # Trim
+    type: event
+    event_name: LYOKE_TRIM_SW_RIGHT_BUTTON_UP
+

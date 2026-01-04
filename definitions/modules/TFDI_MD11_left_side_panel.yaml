@@ -1,0 +1,108 @@
+# TFDI MD-11 Left Side Panel (Inputs, Controls)
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Briefcase
+    type: NumIncrement
+    var_name: L:MD11_LSIDE_BRIEFCASE_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: LSIDE_BRIEFCASE_KB_WHEEL_UP
+    down_event_name: LSIDE_BRIEFCASE_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Floor
+    type: event
+    event_name: LSIDE_FLOOR_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: LSIDE_FLOOR_SW_RIGHT_BUTTON_DOWN
+
+  - # Inp Appr
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_APPR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_APPR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_APPR_BT_LEFT_BUTTON_UP
+
+  - # Inp Cadc
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_CADC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_CADC_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_CADC_BT_LEFT_BUTTON_UP
+
+  - # Inp Eis
+    type: event
+    event_name: LSIDE_INP_EIS_KB_LEFT_BUTTON_DOWN
+
+  - # Inp Eis
+    type: event
+    event_name: LSIDE_INP_EIS_KB_RIGHT_BUTTON_DOWN
+
+  - # Inp Fltdiroff
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_FLTDIROFF_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_FLTDIROFF_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_FLTDIROFF_BT_LEFT_BUTTON_UP
+
+  - # Inp Fltdir
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_FLTDIR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_FLTDIR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_FLTDIR_BT_LEFT_BUTTON_UP
+
+  - # Inp Fms
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_FMS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_FMS_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_FMS_BT_LEFT_BUTTON_UP
+
+  - # Inp Irs
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_IRS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_IRS_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_IRS_BT_LEFT_BUTTON_UP
+
+  - # Inp Vor
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_INP_VOR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_INP_VOR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_INP_VOR_BT_LEFT_BUTTON_UP
+
+  - # Ptt
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_PTT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_PTT_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_PTT_BT_LEFT_BUTTON_UP
+
+  - # Timer
+    type: ToggleSwitch
+    var_name: L:MD11_LSIDE_TIMER_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LSIDE_TIMER_BT_LEFT_BUTTON_DOWN
+    off_event_name: LSIDE_TIMER_BT_LEFT_BUTTON_UP
+
+  - # Timer
+    type: event
+    event_name: LSIDE_TIMER_SW_LEFT_BUTTON_DOWN
+  -
+    type: event
+    event_name: LSIDE_TIMER_SW_RIGHT_BUTTON_DOWN
+

@@ -1,166 +1,195 @@
-# TFDI MD-11 Aft Overhead Panel Controls
+# TFDI MD-11 Aft Overhead Panel (APU, Fire, Cargo Smoke, GPWS, Evacuation, etc.)
 # Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
 # Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
 
 shared:
-  - # APU Fire - Wheel Controls
+  - # Apufire
+    type: NumIncrement
+    var_name: L:MD11_AOVHD_APUFIRE_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: AOVHD_APUFIRE_KB_WHEEL_UP
+    down_event_name: AOVHD_APUFIRE_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Apufire
     type: event
     event_name: AOVHD_APUFIRE_KB_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_APUFIRE_KB_WHEEL_DOWN
-  -
-    type: event
-    event_name: AOVHD_APUFIRE_KB_WHEEL_UP
 
-  - # APU Generator Button
-    type: event
+  - # Apu Gen
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_APU_GEN_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_APU_GEN_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_APU_GEN_BT_LEFT_BUTTON_UP
+    off_event_name: AOVHD_APU_GEN_BT_LEFT_BUTTON_UP
 
-  - # APU Start Button
-    type: event
+  - # Apu Start
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_APU_START_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_APU_START_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_APU_START_BT_LEFT_BUTTON_UP
+    off_event_name: AOVHD_APU_START_BT_LEFT_BUTTON_UP
 
-  - # Cargo Smoke - Aft Agent 1
-    type: event
+  - # Crgsmk Aft Agnt1
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_CRGSMK_AFT_AGNT1_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_CRGSMK_AFT_AGNT1_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_CRGSMK_AFT_AGNT1_BT_LEFT_BUTTON_UP
-  -
+    off_event_name: AOVHD_CRGSMK_AFT_AGNT1_BT_LEFT_BUTTON_UP
+
+  - # Crgsmk Aft Agnt1
     type: event
     event_name: AOVHD_CRGSMK_AFT_AGNT1_GRD_LEFT_BUTTON_DOWN
 
-  - # Cargo Smoke - Aft Agent 2
-    type: event
+  - # Crgsmk Aft Agnt2
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_CRGSMK_AFT_AGNT2_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_CRGSMK_AFT_AGNT2_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_CRGSMK_AFT_AGNT2_BT_LEFT_BUTTON_UP
-  -
+    off_event_name: AOVHD_CRGSMK_AFT_AGNT2_BT_LEFT_BUTTON_UP
+
+  - # Crgsmk Aft Agnt2
     type: event
     event_name: AOVHD_CRGSMK_AFT_AGNT2_GRD_LEFT_BUTTON_DOWN
 
-  - # Cargo Smoke - Aft Vent Switch
+  - # Crgsmk Aft Vent
     type: event
     event_name: AOVHD_CRGSMK_AFT_VENT_SW_LEFT_BUTTON_DOWN
 
-  - # Cargo Smoke - Forward Agent 1
-    type: event
+  - # Crgsmk Fwd Agnt1
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_CRGSMK_FWD_AGNT1_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_CRGSMK_FWD_AGNT1_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_CRGSMK_FWD_AGNT1_BT_LEFT_BUTTON_UP
-  -
+    off_event_name: AOVHD_CRGSMK_FWD_AGNT1_BT_LEFT_BUTTON_UP
+
+  - # Crgsmk Fwd Agnt1
     type: event
     event_name: AOVHD_CRGSMK_FWD_AGNT1_GRD_LEFT_BUTTON_DOWN
 
-  - # Cargo Smoke - Forward Agent 2
-    type: event
+  - # Crgsmk Fwd Agnt2
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_CRGSMK_FWD_AGNT2_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_CRGSMK_FWD_AGNT2_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_CRGSMK_FWD_AGNT2_BT_LEFT_BUTTON_UP
-  -
+    off_event_name: AOVHD_CRGSMK_FWD_AGNT2_BT_LEFT_BUTTON_UP
+
+  - # Crgsmk Fwd Agnt2
     type: event
     event_name: AOVHD_CRGSMK_FWD_AGNT2_GRD_LEFT_BUTTON_DOWN
 
-  - # Cargo Smoke - Forward Vent Switch
+  - # Crgsmk Fwd Vent
     type: event
     event_name: AOVHD_CRGSMK_FWD_VENT_SW_LEFT_BUTTON_DOWN
 
-  - # Cargo Smoke Test Button
-    type: event
+  - # Crgsmk Test
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_CRGSMK_TEST_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_CRGSMK_TEST_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_CRGSMK_TEST_BT_LEFT_BUTTON_UP
+    off_event_name: AOVHD_CRGSMK_TEST_BT_LEFT_BUTTON_UP
 
-  - # Engine 1 Fire
+  - # Eng1Fire 1
     type: event
     event_name: AOVHD_ENG1FIRE_1_KB_LEFT_BUTTON_DOWN
-  -
+
+  - # Eng1Fire 2
     type: event
     event_name: AOVHD_ENG1FIRE_2_KB_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_ENG1FIRE_KB_WHEEL_DOWN
-  -
-    type: event
-    event_name: AOVHD_ENG1FIRE_KB_WHEEL_UP
 
-  - # Engine 2 Fire
+  - # Eng1Fire
+    type: NumIncrement
+    var_name: L:MD11_AOVHD_ENG1FIRE_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: AOVHD_ENG1FIRE_KB_WHEEL_UP
+    down_event_name: AOVHD_ENG1FIRE_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Eng2Fire 1
     type: event
     event_name: AOVHD_ENG2FIRE_1_KB_LEFT_BUTTON_DOWN
-  -
+
+  - # Eng2Fire 2
     type: event
     event_name: AOVHD_ENG2FIRE_2_KB_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_ENG2FIRE_KB_WHEEL_DOWN
-  -
-    type: event
-    event_name: AOVHD_ENG2FIRE_KB_WHEEL_UP
 
-  - # Engine 3 Fire
+  - # Eng2Fire
+    type: NumIncrement
+    var_name: L:MD11_AOVHD_ENG2FIRE_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: AOVHD_ENG2FIRE_KB_WHEEL_UP
+    down_event_name: AOVHD_ENG2FIRE_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Eng3Fire 1
     type: event
     event_name: AOVHD_ENG3FIRE_1_KB_LEFT_BUTTON_DOWN
-  -
+
+  - # Eng3Fire 2
     type: event
     event_name: AOVHD_ENG3FIRE_2_KB_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_ENG3FIRE_KB_WHEEL_DOWN
-  -
-    type: event
-    event_name: AOVHD_ENG3FIRE_KB_WHEEL_UP
 
-  - # Evacuation Ground Button
+  - # Eng3Fire
+    type: NumIncrement
+    var_name: L:MD11_AOVHD_ENG3FIRE_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: AOVHD_ENG3FIRE_KB_WHEEL_UP
+    down_event_name: AOVHD_ENG3FIRE_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Evac
     type: event
     event_name: AOVHD_EVAC_GRD_LEFT_BUTTON_DOWN
 
-  - # Evacuation Horn Shut Switch
+  - # Evac Hornshut
     type: event
     event_name: AOVHD_EVAC_HORNSHUT_SW_LEFT_BUTTON_DOWN
 
-  - # Evacuation Switch
+  - # Evac
     type: event
     event_name: AOVHD_EVAC_SW_LEFT_BUTTON_DOWN
   -
     type: event
     event_name: AOVHD_EVAC_SW_RIGHT_BUTTON_DOWN
 
-  - # Fire Test Button
-    type: event
+  - # Firetest
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_FIRETEST_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_FIRETEST_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_FIRETEST_BT_LEFT_BUTTON_UP
+    off_event_name: AOVHD_FIRETEST_BT_LEFT_BUTTON_UP
 
-  - # GPWS Ground Button
+  - # Gpws
     type: event
     event_name: AOVHD_GPWS_GRD_LEFT_BUTTON_DOWN
 
-  - # GPWS Switch
+  - # Gpws
     type: event
     event_name: AOVHD_GPWS_SW_LEFT_BUTTON_DOWN
   -
     type: event
     event_name: AOVHD_GPWS_SW_RIGHT_BUTTON_DOWN
 
-  - # GPWS Terrain Override Button
-    type: event
+  - # Gpws Terrovrd
+    type: ToggleSwitch
+    var_name: L:MD11_AOVHD_GPWS_TERROVRD_BT
+    var_units: Bool
+    var_type: bool
     event_name: AOVHD_GPWS_TERROVRD_BT_LEFT_BUTTON_DOWN
-  -
-    type: event
-    event_name: AOVHD_GPWS_TERROVRD_BT_LEFT_BUTTON_UP
-  -
+    off_event_name: AOVHD_GPWS_TERROVRD_BT_LEFT_BUTTON_UP
+
+  - # Gpws Terrovrd
     type: event
     event_name: AOVHD_GPWS_TERROVRD_GRD_LEFT_BUTTON_DOWN
 

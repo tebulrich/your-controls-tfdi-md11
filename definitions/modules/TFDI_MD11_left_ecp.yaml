@@ -1,0 +1,206 @@
+# TFDI MD-11 Left Electronic Control Panel
+# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events
+# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables
+
+shared:
+  - # Adf1
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_ADF1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_ADF1_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_ADF1_BT_LEFT_BUTTON_UP
+
+  - # Adf2
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_ADF2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_ADF2_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_ADF2_BT_LEFT_BUTTON_UP
+
+  - # Appr
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_APPR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_APPR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_APPR_BT_LEFT_BUTTON_UP
+
+  - # Arpt
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_ARPT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_ARPT_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_ARPT_BT_LEFT_BUTTON_UP
+
+  - # LECP_BAROSET_CAP_LEFT_BUTTON_DOWN
+    type: event
+    event_name: LECP_BAROSET_CAP_LEFT_BUTTON_DOWN
+
+  - # LECP_BAROSET_CAP_LEFT_BUTTON_UP
+    type: event
+    event_name: LECP_BAROSET_CAP_LEFT_BUTTON_UP
+
+  - # LECP_BAROSET_CAP_WHEEL_DOWN
+    type: event
+    event_name: LECP_BAROSET_CAP_WHEEL_DOWN
+
+  - # LECP_BAROSET_CAP_WHEEL_UP
+    type: event
+    event_name: LECP_BAROSET_CAP_WHEEL_UP
+
+  - # Baroset
+    type: event
+    event_name: LECP_BAROSET_KB_LEFT_BUTTON_DOWN
+
+  - # Data
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_DATA_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_DATA_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_DATA_BT_LEFT_BUTTON_UP
+
+  - # Decr
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_DECR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_DECR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_DECR_BT_LEFT_BUTTON_UP
+
+  - # Incr
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_INCR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_INCR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_INCR_BT_LEFT_BUTTON_UP
+
+  - # Inhp
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_INHP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_INHP_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_INHP_BT_LEFT_BUTTON_UP
+
+  - # Magtru
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_MAGTRU_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_MAGTRU_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_MAGTRU_BT_LEFT_BUTTON_UP
+
+  - # Map
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_MAP_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_MAP_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_MAP_BT_LEFT_BUTTON_UP
+
+  - # LECP_MINIMUMS_CAP_LEFT_BUTTON_DOWN
+    type: event
+    event_name: LECP_MINIMUMS_CAP_LEFT_BUTTON_DOWN
+
+  - # LECP_MINIMUMS_CAP_LEFT_BUTTON_UP
+    type: event
+    event_name: LECP_MINIMUMS_CAP_LEFT_BUTTON_UP
+
+  - # LECP_MINIMUMS_CAP_WHEEL_DOWN
+    type: event
+    event_name: LECP_MINIMUMS_CAP_WHEEL_DOWN
+
+  - # LECP_MINIMUMS_CAP_WHEEL_UP
+    type: event
+    event_name: LECP_MINIMUMS_CAP_WHEEL_UP
+
+  - # Minimums
+    type: event
+    event_name: LECP_MINIMUMS_KB_LEFT_BUTTON_DOWN
+
+  - # Plan
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_PLAN_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_PLAN_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_PLAN_BT_LEFT_BUTTON_UP
+
+  - # Tcas
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_TCAS_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_TCAS_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_TCAS_BT_LEFT_BUTTON_UP
+
+  - # Trfc
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_TRFC_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_TRFC_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_TRFC_BT_LEFT_BUTTON_UP
+
+  - # Vor1
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_VOR1_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_VOR1_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_VOR1_BT_LEFT_BUTTON_UP
+
+  - # Vor2
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_VOR2_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_VOR2_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_VOR2_BT_LEFT_BUTTON_UP
+
+  - # Vorndb
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_VORNDB_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_VORNDB_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_VORNDB_BT_LEFT_BUTTON_UP
+
+  - # Vor
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_VOR_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_VOR_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_VOR_BT_LEFT_BUTTON_UP
+
+  - # Wpt
+    type: ToggleSwitch
+    var_name: L:MD11_LECP_WPT_BT
+    var_units: Bool
+    var_type: bool
+    event_name: LECP_WPT_BT_LEFT_BUTTON_DOWN
+    off_event_name: LECP_WPT_BT_LEFT_BUTTON_UP
+
+  - # Wxbrt
+    type: NumIncrement
+    var_name: L:MD11_LECP_WXBRT_KB
+    var_units: Number
+    var_type: f64
+    up_event_name: LECP_WXBRT_KB_WHEEL_UP
+    down_event_name: LECP_WXBRT_KB_WHEEL_DOWN
+    increment_by: 1
+
+  - # Wxbrt
+    type: event
+    event_name: LECP_WXBRT_KB_LEFT_BUTTON_DOWN
+
+  - # Wxbrt
+    type: event
+    event_name: LECP_WXBRT_KB_LEFT_BUTTON_UP
+

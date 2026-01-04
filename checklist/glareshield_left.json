@@ -3,13 +3,13 @@
   "description": "Glareshield Left (Master Warning/Caution, GS)",
   "event_count": 6,
   "events": [
-    "GSL_GS_BT_LEFT_BUTTON_DOWN",
-    "GSL_GS_BT_LEFT_BUTTON_UP",
-    "GSL_MST_CAUT_BT_LEFT_BUTTON_DOWN",
-    "GSL_MST_CAUT_BT_LEFT_BUTTON_UP",
-    "GSL_MST_WRN_BT_LEFT_BUTTON_DOWN",
-    "GSL_MST_WRN_BT_LEFT_BUTTON_UP"
+    "GSL_GS_BT_LEFT_BUTTON_DOWN // present",
+    "GSL_GS_BT_LEFT_BUTTON_UP // present",
+    "GSL_MST_CAUT_BT_LEFT_BUTTON_DOWN // present",
+    "GSL_MST_CAUT_BT_LEFT_BUTTON_UP // present",
+    "GSL_MST_WRN_BT_LEFT_BUTTON_DOWN // present",
+    "GSL_MST_WRN_BT_LEFT_BUTTON_UP // present"
   ],
-  "present_count": 0,
+  "present_count": 6,
   "total_count": 6
 }
