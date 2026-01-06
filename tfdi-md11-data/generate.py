@@ -647,7 +647,7 @@ def update_aircraft_file_includes(aircraft_file, checklist_files):
     tfdi_includes = []
     for checklist_file in sorted(checklist_files):
         category = checklist_file.stem
-        tfdi_includes.append(f"  - definitions/modules/tfdi-md11/TFDI_MD11_{category}.yaml")
+        tfdi_includes.append(f"  - definitions/modules/tfdi-md11/TFDi_MD11_{category}.yaml")
     
     # Reconstruct includes section: standard includes + TFDI includes
     include_lines = ['include:']
@@ -720,7 +720,7 @@ def update_existing_yaml(output_file, events, description, variables):
         sys.exit(1)
     
     # For now, just regenerate (could be improved to do true merging)
-    yaml_content = generate_yaml(output_file.stem.replace('TFDI_MD11_', ''), events, description, variables)
+    yaml_content = generate_yaml(output_file.stem.replace('TFDi_MD11_', ''), events, description, variables)
     
     with open(output_file, 'w') as f:
         f.write(yaml_content)
@@ -822,13 +822,13 @@ def regenerate_all_modules(split_mode=False):
         print("REGENERATING ALL TFDI MD-11 MODULES (MERGED MODE - DEFAULT)")
     print("=" * 60)
     
-    # Step 1: Delete all TFDI_MD11_*.yaml files
+    # Step 1: Delete all TFDi_MD11_*.yaml files
     # In split mode, delete them to regenerate fresh
     # In merged mode (default), delete them since everything goes into the main file
-    print("\nStep 1: Deleting existing TFDI_MD11_*.yaml files...")
+    print("\nStep 1: Deleting existing TFDi_MD11_*.yaml files...")
     deleted_count = 0
     if modules_dir.exists():
-        for module_file in modules_dir.glob("TFDI_MD11_*.yaml"):
+        for module_file in modules_dir.glob("TFDi_MD11_*.yaml"):
             module_file.unlink()
             deleted_count += 1
             print(f"  Deleted: {module_file.name}")
@@ -859,7 +859,7 @@ def regenerate_all_modules(split_mode=False):
         generated_count = 0
         for checklist_file in checklist_files:
             category = checklist_file.stem
-            output_file = modules_dir / f"TFDI_MD11_{category}.yaml"
+            output_file = modules_dir / f"TFDi_MD11_{category}.yaml"
             
             try:
                 # Read checklist
@@ -1016,7 +1016,7 @@ def main():
         # Generate separate module file
         modules_dir = Path(__file__).parent.parent / "definitions" / "modules" / "tfdi-md11"
         modules_dir.mkdir(parents=True, exist_ok=True)
-        output_file = modules_dir / f"TFDI_MD11_{category}.yaml"
+        output_file = modules_dir / f"TFDi_MD11_{category}.yaml"
         
         # Generate YAML
         yaml_content = generate_yaml(category, events, description, variables)

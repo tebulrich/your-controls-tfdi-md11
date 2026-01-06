@@ -48,9 +48,9 @@ def find_event_in_yaml(event_name, yaml_content):
 def get_module_filename(category_name):
     """Determine the module filename based on category name."""
     # Convert category name to module filename pattern
-    # e.g., "audio_panel" -> "TFDI_MD11_audio_panel.yaml"
-    # e.g., "aft_overhead_panel" -> "TFDI_MD11_aft_overhead_panel.yaml"
-    module_name = f"TFDI_MD11_{category_name}.yaml"
+    # e.g., "audio_panel" -> "TFDi_MD11_audio_panel.yaml"
+    # e.g., "aft_overhead_panel" -> "TFDi_MD11_aft_overhead_panel.yaml"
+    module_name = f"TFDi_MD11_{category_name}.yaml"
     return MODULES_DIR / module_name
 
 def check_events_for_category(category_file):
@@ -74,7 +74,7 @@ def check_events_for_category(category_file):
     # Also check other module files that might contain events
     all_module_files = []
     if MODULES_DIR.exists():
-        for module_file in MODULES_DIR.glob("TFDI_MD11_*.yaml"):
+        for module_file in MODULES_DIR.glob("TFDi_MD11_*.yaml"):
             if module_file.name != get_module_filename(category).name:
                 all_module_files.append((module_file.name, load_yaml_file(module_file)))
     

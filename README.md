@@ -1,6 +1,6 @@
-# TFDI MD-11 YourControls Configuration
+# TFDi Design MD-11 YourControls Configuration
 
-YourControls configuration files for the TFDI Design MD-11 aircraft. This project provides complete event coverage for all aircraft systems and panels.
+YourControls configuration files for the TFDi Design MD-11 aircraft. This project provides complete event coverage for all aircraft systems and panels.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ YourControls configuration files for the TFDI Design MD-11 aircraft. This projec
 
 ## Overview
 
-This project creates comprehensive YourControls configuration files for the TFDI Design MD-11 aircraft. The configuration is organized into modular YAML files, with each module covering a specific panel/system. All events are consolidated into a single main aircraft configuration file.
+This project creates comprehensive YourControls configuration files for the TFDi Design MD-11 aircraft. The configuration is organized into modular YAML files, with each module covering a specific panel/system. All events are consolidated into a single main aircraft configuration file.
 
 ## Status
 
@@ -60,7 +60,7 @@ your-controls-tfdi-md11/
 │   ├── aircraft/
 │   │   └── TFDi Design - MD-11.yaml    # Main aircraft configuration
 │   └── modules/
-│       ├── tfdi-md11/                   # TFDI MD-11 modules (when not merged)
+│       ├── tfdi-md11/                   # TFDi MD-11 modules (when not merged)
 │       └── *.yaml                       # Standard YourControls modules
 ├── tfdi-md11-data/
 │   ├── *.json                          # Event checklist files
@@ -293,7 +293,7 @@ python3 tfdi-md11-data/check_events.py <category_name>
 ## File Locations
 
 - Main aircraft config: `definitions/aircraft/TFDi Design - MD-11.yaml`
-- Module files (non-merged): `definitions/modules/tfdi-md11/TFDI_MD11_*.yaml`
+- Module files (non-merged): `definitions/modules/tfdi-md11/TFDi_MD11_*.yaml`
 - Checklist files: `tfdi-md11-data/*.json`
 - Variables file: `tfdi-md11-data/variables.json`
 - Check script: `tfdi-md11-data/check_events.py`
