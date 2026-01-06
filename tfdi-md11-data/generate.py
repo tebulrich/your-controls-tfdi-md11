@@ -22,6 +22,7 @@ instead of merging into the main aircraft file. Works with both all categories a
 import json
 import re
 import sys
+import yaml
 from pathlib import Path
 
 def format_comment_name(event_name):
@@ -324,6 +325,30 @@ def generate_shared_content(category_name, events, description, variables=None):
     # Remove the trailing newline and return
     return content.rstrip()
 
+def validate_yaml_file(file_path):
+    """Validate a YAML file and return error details if invalid."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            yaml.safe_load(content)
+        return None  # Valid
+    except yaml.YAMLError as e:
+        error_msg = str(e)
+        # Extract line number if available
+        if hasattr(e, 'problem_mark'):
+            mark = e.problem_mark
+            line_num = mark.line + 1
+            column = mark.column + 1
+            # Get the problematic line
+            lines = content.split('\n')
+            if line_num <= len(lines):
+                problem_line = lines[line_num - 1]
+                return f"YAML Error at line {line_num}, column {column}:\n  {problem_line}\n  {' ' * (column - 1)}^\n{error_msg}"
+            return f"YAML Error at line {line_num}, column {column}:\n{error_msg}"
+        return f"YAML Error: {error_msg}"
+    except Exception as e:
+        return f"Error reading/validating YAML file: {e}"
+
 def parse_aircraft_yaml(aircraft_file):
     """Parse the main aircraft YAML file to extract header, includes, shared, and master sections."""
     with open(aircraft_file, 'r') as f:
@@ -434,7 +459,26 @@ def merge_all_categories_to_aircraft_file(aircraft_file, checklist_dir, variable
     output_lines.append("shared:")
     
     # Add existing shared content (before our merged content)
-    existing_shared = '\n'.join(parsed['shared'][1:]).strip()  # Skip 'shared:' line
+    # Fix indentation: ensure list items have 2 spaces
+    existing_shared_lines = []
+    for line in parsed['shared'][1:]:  # Skip 'shared:' line
+        stripped = line.lstrip()
+        # If line starts with '-' (list item), ensure it has 2 spaces indentation
+        if stripped.startswith('-'):
+            # Count current leading spaces
+            leading_spaces = len(line) - len(stripped)
+            if leading_spaces != 2:
+                # Fix to 2 spaces
+                existing_shared_lines.append('  ' + stripped)
+            else:
+                existing_shared_lines.append(line)
+        else:
+            existing_shared_lines.append(line)
+    
+    # Join lines but don't strip - we need to preserve leading spaces on first line
+    existing_shared = '\n'.join(existing_shared_lines)
+    # Only strip trailing whitespace, not leading
+    existing_shared = existing_shared.rstrip()
     if existing_shared:
         output_lines.append(existing_shared)
         output_lines.append("")
@@ -452,6 +496,13 @@ def merge_all_categories_to_aircraft_file(aircraft_file, checklist_dir, variable
         f.write('\n'.join(output_lines))
         if not output_lines[-1].endswith('\n'):
             f.write('\n')
+    
+    # Validate the merged aircraft file
+    validation_error = validate_yaml_file(aircraft_file)
+    if validation_error:
+        print(f"ERROR: Invalid YAML in aircraft file after merging all categories")
+        print(f"{validation_error}")
+        sys.exit(1)
     
     print(f"Merged all categories into: {aircraft_file}")
 
@@ -486,7 +537,26 @@ def update_aircraft_file_includes(aircraft_file, checklist_files):
     output_lines.append("shared:")
     
     # Add existing shared content
-    existing_shared = '\n'.join(parsed['shared'][1:]).strip()  # Skip 'shared:' line
+    # Fix indentation: ensure list items have 2 spaces
+    existing_shared_lines = []
+    for line in parsed['shared'][1:]:  # Skip 'shared:' line
+        stripped = line.lstrip()
+        # If line starts with '-' (list item), ensure it has 2 spaces indentation
+        if stripped.startswith('-'):
+            # Count current leading spaces
+            leading_spaces = len(line) - len(stripped)
+            if leading_spaces != 2:
+                # Fix to 2 spaces
+                existing_shared_lines.append('  ' + stripped)
+            else:
+                existing_shared_lines.append(line)
+        else:
+            existing_shared_lines.append(line)
+    
+    # Join lines but don't strip - we need to preserve leading spaces on first line
+    existing_shared = '\n'.join(existing_shared_lines)
+    # Only strip trailing whitespace, not leading
+    existing_shared = existing_shared.rstrip()
     if existing_shared:
         output_lines.append(existing_shared)
     
@@ -500,6 +570,13 @@ def update_aircraft_file_includes(aircraft_file, checklist_files):
         f.write('\n'.join(output_lines))
         if not output_lines[-1].endswith('\n'):
             f.write('\n')
+    
+    # Validate the updated aircraft file
+    validation_error = validate_yaml_file(aircraft_file)
+    if validation_error:
+        print(f"ERROR: Invalid YAML in aircraft file after updating includes")
+        print(f"{validation_error}")
+        sys.exit(1)
     
     print(f"Updated aircraft file includes: {len(tfdi_includes)} TFDI modules")
 
@@ -642,6 +719,13 @@ def regenerate_all_modules(split_mode=False):
                 with open(output_file, 'w') as f:
                     f.write(yaml_content)
                 
+                # Validate the generated YAML
+                validation_error = validate_yaml_file(output_file)
+                if validation_error:
+                    print(f"  ERROR: Invalid YAML generated for {category}")
+                    print(f"  {validation_error}")
+                    raise ValueError(f"Invalid YAML in {output_file.name}")
+                
                 toggle_count = yaml_content.count('type: ToggleSwitch')
                 num_increment_count = yaml_content.count('type: NumIncrement')
                 
@@ -660,10 +744,24 @@ def regenerate_all_modules(split_mode=False):
         
         # Update aircraft file to include all generated modules
         update_aircraft_file_includes(aircraft_file, checklist_files)
+        
+        # Validate the updated aircraft file
+        validation_error = validate_yaml_file(aircraft_file)
+        if validation_error:
+            print(f"\nERROR: Invalid YAML in aircraft file after updating includes")
+            print(f"{validation_error}")
+            sys.exit(1)
     else:
         # Default: merge mode - write everything into main aircraft file
         merge_all_categories_to_aircraft_file(aircraft_file, checklist_dir, variables)
         print("\nMerged all categories into aircraft file")
+        
+        # Validate the merged aircraft file
+        validation_error = validate_yaml_file(aircraft_file)
+        if validation_error:
+            print(f"\nERROR: Invalid YAML in aircraft file after merging")
+            print(f"{validation_error}")
+            sys.exit(1)
     
     # Step 4: Run check_events on all categories
     print("\nStep 4: Running check_events on all categories...")
@@ -746,6 +844,13 @@ def main():
         with open(output_file, 'w') as f:
             f.write(yaml_content)
         
+        # Validate the generated YAML
+        validation_error = validate_yaml_file(output_file)
+        if validation_error:
+            print(f"ERROR: Invalid YAML generated for {category}")
+            print(f"{validation_error}")
+            sys.exit(1)
+        
         print(f"Generated: {output_file}")
         print(f"Events: {len(events)}")
         
@@ -760,6 +865,13 @@ def main():
         # Update aircraft file to include this module
         aircraft_file = Path(__file__).parent.parent / "definitions" / "aircraft" / "TFDi Design - MD-11.yaml"
         update_aircraft_file_includes(aircraft_file, [checklist_file])
+        
+        # Validate the updated aircraft file
+        validation_error = validate_yaml_file(aircraft_file)
+        if validation_error:
+            print(f"\nERROR: Invalid YAML in aircraft file after updating includes")
+            print(f"{validation_error}")
+            sys.exit(1)
     else:
         # Merge this single category into the aircraft file (default behavior)
         aircraft_file = Path(__file__).parent.parent / "definitions" / "aircraft" / "TFDi Design - MD-11.yaml"
@@ -777,7 +889,26 @@ def main():
         output_lines.append("shared:")
         
         # Add existing shared content
-        existing_shared = '\n'.join(parsed['shared'][1:]).strip()  # Skip 'shared:' line
+        # Fix indentation: ensure list items have 2 spaces
+        existing_shared_lines = []
+        for line in parsed['shared'][1:]:  # Skip 'shared:' line
+            stripped = line.lstrip()
+            # If line starts with '-' (list item), ensure it has 2 spaces indentation
+            if stripped.startswith('-'):
+                # Count current leading spaces
+                leading_spaces = len(line) - len(stripped)
+                if leading_spaces != 2:
+                    # Fix to 2 spaces
+                    existing_shared_lines.append('  ' + stripped)
+                else:
+                    existing_shared_lines.append(line)
+            else:
+                existing_shared_lines.append(line)
+        
+        # Join lines but don't strip - we need to preserve leading spaces on first line
+        existing_shared = '\n'.join(existing_shared_lines)
+        # Only strip trailing whitespace, not leading
+        existing_shared = existing_shared.rstrip()
         if existing_shared:
             output_lines.append(existing_shared)
             output_lines.append("")
@@ -795,6 +926,13 @@ def main():
             f.write('\n'.join(output_lines))
             if not output_lines[-1].endswith('\n'):
                 f.write('\n')
+        
+        # Validate the merged aircraft file
+        validation_error = validate_yaml_file(aircraft_file)
+        if validation_error:
+            print(f"ERROR: Invalid YAML in aircraft file after merging {category}")
+            print(f"{validation_error}")
+            sys.exit(1)
         
         print(f"Merged {category} into: {aircraft_file}")
         print(f"Events: {len(events)}")

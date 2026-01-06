@@ -86,9 +86,9 @@ python3 tfdi-md11-data/check_events.py
 
 ### Regenerate Configuration
 
-Regenerate all modules and merge into main file:
+Regenerate all categories and merge into main file:
 ```bash
-python3 tfdi-md11-data/generate.py --regenerate-all --merged
+python3 tfdi-md11-data/generate.py
 ```
 
 ## Checklist System
@@ -191,31 +191,67 @@ increment_by: 1
 
 ## Workflow
 
-1. Start with a smaller category (e.g., `throttle.json`, `center_panel.json`) to get familiar
-2. Read the checklist JSON file for that category
-3. Create the module YAML file (or use the generator script)
-4. Add events systematically - group related events together with comments
-5. Run: `python3 tfdi-md11-data/check_events.py <category>`
-6. Verify 100% coverage
-7. Move to the next category
+### Regenerating the Configuration
 
-### Tips
+To regenerate the entire configuration from scratch:
 
-- Look at existing modules as examples
-- Use grep to search for similar event patterns in existing modules
-- The `overhead_panel.json` is the largest - save it for last or break it into sub-modules
-- Always run the check script after adding events to verify they're being detected
-- If events aren't being found, check for typos in event names
-- YAML syntax is strict - ensure proper indentation (2 spaces)
+```bash
+# Regenerate all categories and merge into main aircraft file
+python3 tfdi-md11-data/generate.py
+
+# Verify coverage
+python3 tfdi-md11-data/check_events.py
+```
+
+### Updating a Single Category
+
+To regenerate a specific category:
+
+```bash
+# Regenerate a single category
+python3 tfdi-md11-data/generate.py <category_name>
+
+# Verify coverage for that category
+python3 tfdi-md11-data/check_events.py <category_name>
+```
+
+### Working with Separate Module Files
+
+If you prefer to work with separate module files instead of a merged configuration:
+
+```bash
+# Generate all categories as separate module files
+python3 tfdi-md11-data/generate.py --split
+
+# Generate a single category as a separate module file
+python3 tfdi-md11-data/generate.py <category_name> --split
+```
+
+The generator script automatically:
+- Groups related events together
+- Detects appropriate control types (ToggleSwitch, NumIncrement, event)
+- Formats YAML with proper indentation and comments
+- Updates checklist files to mark events as present
+
+### Verification
+
+After generating or modifying the configuration, always verify coverage:
+
+```bash
+# Check all categories
+python3 tfdi-md11-data/check_events.py
+
+# Check a specific category
+python3 tfdi-md11-data/check_events.py <category_name>
+```
 
 ## Important Notes
 
-1. Observer events use "OBS_AUDIO_PNL_" prefix (NOT "PED_OBS_AUDIO_PNL_")
-2. Captain/First Officer events use "PED_CPT_" and "PED_FO_" prefixes
-3. Some controls have both button events (_BT_LEFT_BUTTON_DOWN/UP) and wheel events (_KB_WHEEL_UP/DOWN)
-4. Not all events have corresponding L: variables - use "type: event" when no variable exists
-5. Check the variables documentation to see if L: variables exist for toggle-style controls
-6. The `check_events.py` script will mark events as "// present" in JSON files - this is normal
+1. Event prefixes follow specific patterns: Observer events use `OBS_` prefix, Captain/First Officer events use `PED_CPT_` and `PED_FO_` prefixes
+2. Some controls have both button events (`_BT_LEFT_BUTTON_DOWN/UP`) and wheel events (`_KB_WHEEL_UP/DOWN`)
+3. Not all events have corresponding L: variables - the generator automatically uses `type: event` when no variable exists
+4. The `check_events.py` script marks events as "// present" in JSON files - this is expected behavior and helps track coverage
+5. YAML syntax requires strict indentation (2 spaces) - the generator handles this automatically
 
 ## File Locations
 
