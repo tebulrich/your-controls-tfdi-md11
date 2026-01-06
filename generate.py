@@ -3,13 +3,14 @@
 Generate YAML module file from category JSON file.
 
 Usage:
-    python3 generate.py [category_name] [--split]
+    python3 generate.py [category_name] [--split] [--output-path PATH]
     
 Example:
     python3 generate.py                    # Regenerate all categories (merged)
     python3 generate.py center_panel        # Regenerate only center_panel (merged)
     python3 generate.py --split            # Regenerate all as separate module files
     python3 generate.py center_panel --split  # Generate center_panel as separate module file
+    python3 generate.py --output-path E:\YourControls\definitions\aircraft  # Custom output path
     
 By default, all events are merged directly into the main aircraft YAML file.
 This will read tfdi-md11-data/<category_name>.json and merge into 
@@ -17,6 +18,9 @@ definitions/aircraft/TFDi Design - MD-11.yaml
 
 With --split flag, it will create separate module files in definitions/modules/tfdi-md11/ 
 instead of merging into the main aircraft file. Works with both all categories and single category.
+
+With --output-path, you can specify a custom directory for the output aircraft YAML file.
+The path can have or omit a trailing slash.
 """
 
 import json
@@ -56,6 +60,50 @@ def format_comment_name(event_name):
     
     # Fallback: just use the event name
     return event_name
+
+def load_config():
+    """Load configuration from config.json file.
+    
+    Returns:
+        Dictionary with configuration values, or empty dict if file doesn't exist
+    """
+    script_dir = Path(__file__).parent
+    config_file = script_dir / "config.json"
+    
+    if config_file.exists():
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Warning: Could not load config.json: {e}", file=sys.stderr)
+            return {}
+    return {}
+
+def get_aircraft_file_path(custom_output_path=None):
+    """Get the path to the aircraft YAML file.
+    
+    Args:
+        custom_output_path: Optional custom output directory path (overrides config)
+    
+    Returns:
+        Path object to the aircraft YAML file
+    """
+    script_dir = Path(__file__).parent
+    aircraft_filename = "TFDi Design - MD-11.yaml"
+    
+    # Use command-line argument if provided, otherwise check config file
+    output_path = custom_output_path
+    if not output_path:
+        config = load_config()
+        output_path = config.get('output_path')
+    
+    if output_path:
+        # Handle both with and without trailing slash
+        output_path = Path(str(output_path).rstrip('/\\'))
+        return output_path / aircraft_filename
+    else:
+        # Default location
+        return script_dir / "definitions" / "aircraft" / aircraft_filename
 
 def load_variables():
     """Load L: variables from variables.json file."""
@@ -277,6 +325,29 @@ def format_override_lines(overrides):
     
     return lines
 
+def format_entry_as_yaml(entry):
+    """Format a YAML entry dictionary back to YAML text format."""
+    lines = []
+    lines.append("  -")
+    
+    # Sort keys for consistent output
+    key_order = ['type', 'var_name', 'var_units', 'var_type', 'event_name', 
+                 'off_event_name', 'up_event_name', 'down_event_name', 
+                 'increment_by', 'add_by', 'cancel_h_events', 'use_calculator', 'unreliable']
+    other_keys = [k for k in sorted(entry.keys()) if k not in key_order]
+    ordered_keys = [k for k in key_order if k in entry] + other_keys
+    
+    for key in ordered_keys:
+        value = entry[key]
+        if isinstance(value, bool):
+            lines.append(f"    {key}: {str(value).lower()}")
+        elif isinstance(value, (int, float)):
+            lines.append(f"    {key}: {value}")
+        else:
+            lines.append(f"    {key}: {value}")
+    
+    return lines
+
 def generate_yaml(category_name, events, description, variables=None, merged_mode=False):
     """Generate YAML content from events.
     
@@ -471,8 +542,71 @@ def validate_yaml_file(file_path):
     except Exception as e:
         return f"Error reading/validating YAML file: {e}"
 
+def get_entry_key(entry):
+    """Generate a unique key for a YAML entry to identify duplicates.
+    
+    Uses var_name if present, otherwise event_name, otherwise a combination of fields.
+    """
+    if isinstance(entry, dict):
+        # Prefer var_name as the unique identifier
+        if 'var_name' in entry:
+            return ('var_name', entry['var_name'])
+        # Fall back to event_name
+        if 'event_name' in entry:
+            return ('event_name', entry['event_name'])
+        # For entries with up/down events, use both
+        if 'up_event_name' in entry and 'down_event_name' in entry:
+            return ('events', (entry['up_event_name'], entry['down_event_name']))
+        # Last resort: use a combination of type and first available field
+        for key in ['off_event_name', 'event_name']:
+            if key in entry:
+                return ('event', entry[key])
+    return None
+
+def parse_yaml_entries(yaml_content):
+    """Parse YAML content and extract individual entries from the shared section.
+    
+    Returns a list of entry dictionaries and a mapping of keys to entries for deduplication.
+    """
+    try:
+        data = yaml.safe_load(yaml_content)
+        if not data or 'shared' not in data:
+            return [], {}
+        
+        entries = []
+        entry_map = {}
+        
+        for entry in data.get('shared', []):
+            if not isinstance(entry, dict):
+                continue
+            
+            key = get_entry_key(entry)
+            if key:
+                # Use the key to deduplicate - keep the first occurrence
+                if key not in entry_map:
+                    entry_map[key] = entry
+                    entries.append(entry)
+            else:
+                # Entry without a clear key - keep it anyway
+                entries.append(entry)
+        
+        return entries, entry_map
+    except Exception as e:
+        # If parsing fails, return empty (will regenerate from scratch)
+        print(f"Warning: Could not parse existing YAML entries: {e}")
+        return [], {}
+
 def parse_aircraft_yaml(aircraft_file):
     """Parse the main aircraft YAML file to extract header, includes, shared, and master sections."""
+    # If file doesn't exist, return empty structure
+    if not aircraft_file.exists():
+        return {
+            'header': '# Version 1.0.0\n# TFDi Design MD-11 Configuration File\n# Events reference: https://docs.tfdidesign.com/md11/integration-guide/events\n# Variables reference: https://docs.tfdidesign.com/md11/integration-guide/variables',
+            'includes': 'include:\n  - definitions/modules/navigation.yaml\n  - definitions/modules/physics_rad.yaml\n  - definitions/modules/radios.yaml\n  - definitions/modules/transponder.yaml',
+            'shared': ['shared:'],
+            'master': ''
+        }
+    
     with open(aircraft_file, 'r') as f:
         content = f.read()
     
@@ -534,14 +668,52 @@ def parse_aircraft_yaml(aircraft_file):
 
 def merge_all_categories_to_aircraft_file(aircraft_file, data_dir, variables):
     """Merge all categories into the main aircraft YAML file."""
-    # Parse the aircraft file
+    # Ensure output directory exists
+    aircraft_file.parent.mkdir(parents=True, exist_ok=True)
+    
     parsed = parse_aircraft_yaml(aircraft_file)
     
-    # Get all category files
+    # Extract manually-added entries by keeping lines that don't contain generated markers
+    manually_added_lines = []
+    current_entry = []
+    
+    for line in parsed['shared'][1:]:  # Skip 'shared:' line
+        stripped = line.lstrip()
+        
+        if stripped.startswith('-'):
+            # New entry - check if previous entry was manually-added
+            if current_entry:
+                entry_text = '\n'.join(current_entry)
+                if not ('L:MD11_' in entry_text or 
+                       '_BT_LEFT_BUTTON' in entry_text or 
+                       '_KB_WHEEL' in entry_text or
+                       '_SW_LEFT_BUTTON' in entry_text or
+                       '_GRD_LEFT_BUTTON' in entry_text):
+                    manually_added_lines.extend(current_entry)
+                    manually_added_lines.append('')
+                current_entry = []
+            current_entry = [line]
+        elif current_entry:
+            current_entry.append(line)
+        elif not stripped or stripped.startswith('#'):
+            # Blank line or comment before any entry - keep if we have manual entries
+            if manually_added_lines:
+                manually_added_lines.append(line)
+    
+    # Check last entry
+    if current_entry:
+        entry_text = '\n'.join(current_entry)
+        if not ('L:MD11_' in entry_text or 
+               '_BT_LEFT_BUTTON' in entry_text or 
+               '_KB_WHEEL' in entry_text or
+               '_SW_LEFT_BUTTON' in entry_text or
+               '_GRD_LEFT_BUTTON' in entry_text):
+            manually_added_lines.extend(current_entry)
+    
+    # Generate fresh content from all categories
     category_files = sorted(data_dir.glob("*.json"))
     category_files = [f for f in category_files if f.name != "variables.json"]
     
-    # Generate shared content for all categories
     all_shared_content = []
     for category_file in category_files:
         category = category_file.stem
@@ -552,93 +724,49 @@ def merge_all_categories_to_aircraft_file(aircraft_file, data_dir, variables):
             events = data.get('events', [])
             description = data.get('description', category.replace('_', ' ').title())
             
-            # Filter out "// present" markers but preserve format
-            # Events can be strings or objects
             filtered_events = []
             for entry in events:
                 event_name, overrides = parse_event_entry(entry)
                 if event_name:
-                    # Reconstruct entry without // present marker
-                    if isinstance(entry, dict):
-                        # Keep object format
-                        filtered_events.append(entry)
-                    else:
-                        # String format - strip // present
-                        filtered_events.append(event_name)
+                    filtered_events.append(entry if isinstance(entry, dict) else event_name)
             
-            events = filtered_events
-            if not events:
-                continue
-            
-            # Generate shared content
-            shared_content = generate_shared_content(category, events, description, variables)
-            all_shared_content.append(shared_content)
-            
-            # Update category file to mark events as present
-            update_category_file(category_file, events)
+            if filtered_events:
+                shared_content = generate_shared_content(category, filtered_events, description, variables)
+                all_shared_content.append(shared_content)
+                update_category_file(category_file, filtered_events)
         except Exception as e:
             print(f"  ERROR processing {category}: {e}")
             import traceback
             traceback.print_exc()
     
-    # Combine all shared content
-    combined_shared = '\n'.join(all_shared_content)
+    # Reconstruct file
+    output_lines = [parsed['header'], "", parsed['includes'], "", "shared:"]
     
-    # Reconstruct the file
-    output_lines = []
-    output_lines.append(parsed['header'])
-    output_lines.append("")
-    output_lines.append(parsed['includes'])
-    output_lines.append("")
-    output_lines.append("shared:")
-    
-    # Add existing shared content (before our merged content)
-    # Fix indentation: ensure list items have 2 spaces
-    existing_shared_lines = []
-    for line in parsed['shared'][1:]:  # Skip 'shared:' line
-        stripped = line.lstrip()
-        # If line starts with '-' (list item), ensure it has 2 spaces indentation
-        if stripped.startswith('-'):
-            # Count current leading spaces
-            leading_spaces = len(line) - len(stripped)
-            if leading_spaces != 2:
-                # Fix to 2 spaces
-                existing_shared_lines.append('  ' + stripped)
-            else:
-                existing_shared_lines.append(line)
-        else:
-            existing_shared_lines.append(line)
-    
-    # Join lines but don't strip - we need to preserve leading spaces on first line
-    existing_shared = '\n'.join(existing_shared_lines)
-    # Only strip trailing whitespace, not leading
-    existing_shared = existing_shared.rstrip()
-    if existing_shared:
-        output_lines.append(existing_shared)
+    if manually_added_lines:
+        # Remove trailing blank lines
+        while manually_added_lines and not manually_added_lines[-1].strip():
+            manually_added_lines.pop()
+        output_lines.extend(manually_added_lines)
         output_lines.append("")
     
-    # Add merged content
-    output_lines.append(combined_shared)
+    output_lines.append('\n'.join(all_shared_content))
     
-    # Add master section if it exists
     if parsed['master']:
         output_lines.append("")
         output_lines.append(parsed['master'])
     
-    # Write the file
     with open(aircraft_file, 'w') as f:
-        f.write('\n'.join(output_lines))
-        if not output_lines[-1].endswith('\n'):
-            f.write('\n')
+        content = '\n'.join(output_lines)
+        if not content.endswith('\n'):
+            content += '\n'
+        f.write(content)
     
-    # Validate the merged aircraft file
     validation_error = validate_yaml_file(aircraft_file)
     if validation_error:
-        print(f"ERROR: Invalid YAML in aircraft file after merging all categories")
-        print(f"{validation_error}")
+        print(f"ERROR: Invalid YAML: {validation_error}")
         sys.exit(1)
     
-    print(f"Merged all categories into: {aircraft_file}")
+    print(f"Merged {len(category_files)} categories into {aircraft_file}")
 
 def update_aircraft_file_includes(aircraft_file, category_files):
     """Update the aircraft file to include all generated TFDI MD-11 modules."""
@@ -806,16 +934,17 @@ def update_category_file(category_file, events):
     
     print(f"Updated category file: {category_file.name} ({present_count}/{len(updated_events)} events marked as present)")
 
-def regenerate_all_modules(split_mode=False):
+def regenerate_all_modules(split_mode=False, custom_output_path=None):
     """Regenerate all TFDI MD-11 modules from scratch.
     
     Args:
         split_mode: If True, generate separate module files. If False (default), merge into main file.
+        custom_output_path: Optional custom output directory path for aircraft file
     """
     script_dir = Path(__file__).parent
     data_dir = script_dir / "tfdi-md11-data"
     modules_dir = script_dir / "definitions" / "modules" / "tfdi-md11"
-    aircraft_file = script_dir / "definitions" / "aircraft" / "TFDi Design - MD-11.yaml"
+    aircraft_file = get_aircraft_file_path(custom_output_path)
     
     print("=" * 60)
     if split_mode:
@@ -971,14 +1100,31 @@ def regenerate_all_modules(split_mode=False):
 
 def main():
     # Parse arguments
-    args = [arg for arg in sys.argv[1:] if not arg.startswith('--')]
-    flags = [arg for arg in sys.argv[1:] if arg.startswith('--')]
+    custom_output_path = None
+    processed_args = []
+    i = 1
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        if arg in ['--output-path', '--output']:
+            if i + 1 < len(sys.argv):
+                custom_output_path = sys.argv[i + 1]
+                i += 2  # Skip both flag and value
+                continue
+            else:
+                print(f"Error: {arg} requires a path argument", file=sys.stderr)
+                sys.exit(1)
+        else:
+            processed_args.append(arg)
+            i += 1
+    
+    args = [arg for arg in processed_args if not arg.startswith('--')]
+    flags = [arg for arg in processed_args if arg.startswith('--')]
     
     split_mode = '--split' in flags
     
     # If no category specified, regenerate all
     if not args:
-        regenerate_all_modules(split_mode=split_mode)
+        regenerate_all_modules(split_mode=split_mode, custom_output_path=custom_output_path)
         return
     
     # Single category specified
@@ -1050,8 +1196,9 @@ def main():
             print(f"NumIncrements: {num_increment_count}")
         
         # Update aircraft file to include this module
-        script_dir = Path(__file__).parent
-        aircraft_file = script_dir / "definitions" / "aircraft" / "TFDi Design - MD-11.yaml"
+        aircraft_file = get_aircraft_file_path(custom_output_path)
+        # Ensure output directory exists
+        aircraft_file.parent.mkdir(parents=True, exist_ok=True)
         update_aircraft_file_includes(aircraft_file, [category_file])
         
         # Validate the updated aircraft file
@@ -1062,71 +1209,86 @@ def main():
             sys.exit(1)
     else:
         # Merge this single category into the aircraft file (default behavior)
-        script_dir = Path(__file__).parent
-        aircraft_file = script_dir / "definitions" / "aircraft" / "TFDi Design - MD-11.yaml"
+        aircraft_file = get_aircraft_file_path(custom_output_path)
+        # Ensure output directory exists
+        aircraft_file.parent.mkdir(parents=True, exist_ok=True)
         parsed = parse_aircraft_yaml(aircraft_file)
         
         # Generate shared content for this category
         shared_content = generate_shared_content(category, events, description, variables)
         
-        # Reconstruct the file
-        output_lines = []
-        output_lines.append(parsed['header'])
-        output_lines.append("")
-        output_lines.append(parsed['includes'])
-        output_lines.append("")
-        output_lines.append("shared:")
+        # Parse new content to get entry keys for deduplication
+        new_entries_map = {}
+        try:
+            new_yaml = yaml.safe_load(f"shared:\n{shared_content}")
+            if new_yaml and 'shared' in new_yaml:
+                for entry in new_yaml['shared']:
+                    if isinstance(entry, dict):
+                        key = get_entry_key(entry)
+                        if key:
+                            new_entries_map[key] = entry
+        except:
+            pass
         
-        # Add existing shared content
-        # Fix indentation: ensure list items have 2 spaces
-        existing_shared_lines = []
-        for line in parsed['shared'][1:]:  # Skip 'shared:' line
-            stripped = line.lstrip()
-            # If line starts with '-' (list item), ensure it has 2 spaces indentation
-            if stripped.startswith('-'):
-                # Count current leading spaces
-                leading_spaces = len(line) - len(stripped)
-                if leading_spaces != 2:
-                    # Fix to 2 spaces
-                    existing_shared_lines.append('  ' + stripped)
-                else:
-                    existing_shared_lines.append(line)
-            else:
-                existing_shared_lines.append(line)
+        # Extract manually-added entries and filter out entries from this category
+        existing_shared_text = '\n'.join(parsed['shared'])
+        existing_data = yaml.safe_load(existing_shared_text) or {}
+        existing_entries = existing_data.get('shared', [])
         
-        # Join lines but don't strip - we need to preserve leading spaces on first line
-        existing_shared = '\n'.join(existing_shared_lines)
-        # Only strip trailing whitespace, not leading
-        existing_shared = existing_shared.rstrip()
-        if existing_shared:
-            output_lines.append(existing_shared)
+        manually_added = []
+        for entry in existing_entries:
+            if isinstance(entry, dict):
+                var_name = str(entry.get('var_name', ''))
+                event_name = str(entry.get('event_name', ''))
+                up_event = str(entry.get('up_event_name', ''))
+                down_event = str(entry.get('down_event_name', ''))
+                
+                # Check if this entry is from the category we're regenerating
+                key = get_entry_key(entry)
+                is_from_category = key and key in new_entries_map
+                
+                # Keep if it's manually-added (no L:MD11_ vars or generated patterns) 
+                # AND not from the category we're regenerating
+                if not is_from_category and not (
+                    var_name.startswith('L:MD11_') or 
+                    '_BT_LEFT_BUTTON' in event_name or '_KB_WHEEL' in event_name or
+                    '_SW_LEFT_BUTTON' in event_name or '_GRD_LEFT_BUTTON' in event_name or
+                    '_KB_WHEEL' in up_event or '_KB_WHEEL' in down_event
+                ):
+                    manually_added.append(entry)
+        
+        # Reconstruct file
+        output_lines = [parsed['header'], "", parsed['includes'], "", "shared:"]
+        
+        # Add manually-added entries
+        if manually_added:
+            for entry in manually_added:
+                lines = format_entry_as_yaml(entry)
+                output_lines.extend(lines)
+                output_lines.append("")
             output_lines.append("")
         
         # Add new category content
         output_lines.append(shared_content)
         
-        # Add master section if it exists
         if parsed['master']:
             output_lines.append("")
             output_lines.append(parsed['master'])
         
-        # Write the file
         with open(aircraft_file, 'w') as f:
-            f.write('\n'.join(output_lines))
-            if not output_lines[-1].endswith('\n'):
-                f.write('\n')
+            content = '\n'.join(output_lines)
+            if not content.endswith('\n'):
+                content += '\n'
+            f.write(content)
         
-        # Validate the merged aircraft file
         validation_error = validate_yaml_file(aircraft_file)
         if validation_error:
-            print(f"ERROR: Invalid YAML in aircraft file after merging {category}")
-            print(f"{validation_error}")
+            print(f"ERROR: Invalid YAML: {validation_error}")
             sys.exit(1)
         
         print(f"Merged {category} into: {aircraft_file}")
         print(f"Events: {len(events)}")
         
-        # Count control types
         toggle_count = shared_content.count('type: ToggleSwitch')
         num_increment_count = shared_content.count('type: NumIncrement')
         if toggle_count > 0:

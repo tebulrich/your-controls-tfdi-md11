@@ -118,6 +118,11 @@ python3 generate.py --split
 
 # Generate a single category as separate module file
 python3 generate.py <category_name> --split
+
+# Specify custom output path for aircraft file
+python3 generate.py --output-path E:\YourControls\definitions\aircraft
+python3 generate.py --output-path E:\YourControls\definitions\aircraft\
+python3 generate.py <category_name> --output-path E:\YourControls\definitions\aircraft
 ```
 
 ### What It Does
@@ -181,12 +186,36 @@ The generator will automatically apply these overrides to the generated YAML ent
 
 - `--split`: Creates separate module files in `definitions/modules/tfdi-md11/` instead of merging into the main aircraft file. The aircraft file will include references to these modules. Works with both all categories and single category. By default (without `--split`), all events are merged directly into the main aircraft YAML file.
 
+- `--output-path` or `--output`: Specifies a custom directory path for the output aircraft YAML file. The path can include or omit a trailing slash. The output file will be named `TFDi Design - MD-11.yaml` in the specified directory. If the directory doesn't exist, it will be created automatically. This overrides the path specified in `config.json`.
+
+### Configuration File
+
+You can create a `config.json` file in the project root to set default values:
+
+```json
+{
+  "output_path": "E:\\YourControls\\definitions\\aircraft"
+}
+```
+
+The `output_path` setting will be used automatically if no `--output-path` argument is provided. Command-line arguments always override the config file.
+
 ### Behavior
 
 - Running without arguments (`python3 generate.py`): Regenerates all categories and merges into main aircraft file
 - Running with a category name (`python3 generate.py center_panel`): Regenerates only that category and merges into main aircraft file
 - Running with `--split` flag (`python3 generate.py --split`): Regenerates all categories as separate module files
 - Running with category and `--split` (`python3 generate.py center_panel --split`): Generates that category as a separate module file
+
+### Deduplication
+
+The generator automatically prevents duplicate entries when merging categories:
+
+- **All categories mode**: Preserves manually-added entries (those without `L:MD11_` variables or generated event patterns) and replaces all generated entries with fresh content from categories
+- **Single category mode**: Preserves manually-added entries and entries from other categories, but replaces entries from the category being regenerated to prevent duplicates
+- Generated entries are identified by the presence of `L:MD11_` variables or event patterns like `_BT_LEFT_BUTTON`, `_KB_WHEEL`, `_SW_LEFT_BUTTON`, or `_GRD_LEFT_BUTTON`
+
+This ensures that running the generator multiple times does not create duplicate entries in the output file.
 
 ## Event Type Patterns
 
